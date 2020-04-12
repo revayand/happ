@@ -2,13 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_profile"
+        android:id="@+id/navigation_home"
         android:title="خانه" />
 
 
     <item
-        android:id="@+id/navigation_transaction"
+        android:id="@+id/navigation_question"
 
         android:title="پرسشنامه" />
+    <item
+        android:id="@+id/navigation_settings"
+
+        android:title="تنظیمات" />
 
 </menu>
