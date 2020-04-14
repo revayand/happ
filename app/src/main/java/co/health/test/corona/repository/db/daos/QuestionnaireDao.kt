@@ -1,22 +1,24 @@
 package co.health.test.corona.repository.db.daos
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import co.health.test.corona.repository.db.entities.Questionnaire
 import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
+import io.reactivex.Observable
 
 @Dao
-interface QuestionnaireDao  {
+interface QuestionnaireDao {
 
     @Query("SELECT * FROM questionnaire WHERE questionnaire_id=:id")
-    fun  getQuestionnaireById(id:String):List<Questionnaire>
+    fun getQuestionnaireById(id: Long): Observable<List<Questionnaire>>
+
+    @Query("SELECT * FROM questionnaire")
+    fun getAll(): Observable<List<Questionnaire>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun  insert(questionnaire: Questionnaire)
+    fun insert(questionnaire: Questionnaire)
 
+    @Transaction
     @Query("select * FROM questionnaire WHERE questionnaire_id=:id")
-    fun  getQuestionnaireByIdWithQuestions(id:String):List<QuestionnaireWithQuestions>
+    fun getQuestionnaireByIdWithQuestions(id: Long): Observable<List<QuestionnaireWithQuestions>>
 
 }

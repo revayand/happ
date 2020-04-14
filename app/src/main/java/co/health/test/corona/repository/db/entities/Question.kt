@@ -10,7 +10,7 @@ import java.util.*
 data class Question(
     val question: String,
     @Embedded val answer: Answer,
-    @ColumnInfo(name = "questionnaire_id")val questionnaireId: String,
+    @ColumnInfo(name = "parent_questionnaire_id")val questionnaireId: String,
 
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "question_id")

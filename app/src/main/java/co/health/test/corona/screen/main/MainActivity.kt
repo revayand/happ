@@ -5,7 +5,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import co.health.test.corona.R
 import co.health.test.corona.screen.main.home.HomeFragment
-import co.health.test.corona.screen.main.question.QuestionFragment
+import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment
 import co.health.test.corona.screen.main.settings.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
             R.id.navigation_question -> {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.frame, QuestionFragment.newInstance("", ""))
+                    .replace(R.id.frame, QuestionnaireFragment.newInstance("", ""))
             }
             R.id.navigation_settings -> {
                 supportFragmentManager.beginTransaction()

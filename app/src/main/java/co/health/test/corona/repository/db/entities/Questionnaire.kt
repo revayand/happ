@@ -12,7 +12,7 @@ data class Questionnaire(
 
 data class QuestionnaireWithQuestions(
     @Embedded val questionnaire: Questionnaire,
-    @Relation(parentColumn = "questionnaire_id", entityColumn = "questionnaire_id")
+    @Relation(parentColumn = "questionnaire_id", entityColumn = "parent_questionnaire_id")
     val questions: List<Question>)
 
 enum class QuestionnaireState {
