@@ -1,6 +1,5 @@
 package co.health.test.corona.screen.main.questionnaire
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,12 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.Questionnaire
-import co.health.test.corona.repository.db.entities.QuestionnaireState
-import co.health.test.corona.repository.manager.questionnaire.QuestionnaireManager
 import co.health.test.corona.screen.utils.LoadingLayout
-import io.reactivex.observers.DisposableSingleObserver
 import kotlinx.android.synthetic.main.fragment_questionnaire_list.*
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -27,29 +22,12 @@ class QuestionnaireFragment : Fragment() {
 
     val questionnaireViewModel: QuestionnaireViewModel by viewModel()
 
-    val questionnaireManager: QuestionnaireManager by inject()
-
     private var questionnaires: MutableList<Questionnaire> = ArrayList()
-    private var adapter = QuestionnaireRecyclerViewAdapter(questionnaires, listener)
+    private lateinit var adapter: QuestionnaireRecyclerViewAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        questionnaireManager.addQuestionnaire(
-            Questionnaire(
-                "q1",
-                QuestionnaireState.FILLED,
-                System.currentTimeMillis()
-            )
-        ).subscribeWith(object : DisposableSingleObserver<Long>() {
-            override fun onSuccess(t: Long) {
-
-            }
-
-            override fun onError(e: Throwable) {
-
-            }
-        })
         observableViewModel()
 
     }
@@ -80,8 +58,8 @@ class QuestionnaireFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
 
-            list.layoutManager = LinearLayoutManager(context)
-            list.adapter = adapter
+        list.layoutManager = LinearLayoutManager(context)
+        list.adapter = adapter
 
     }
 
@@ -89,17 +67,10 @@ class QuestionnaireFragment : Fragment() {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
             listener = context
+            adapter = QuestionnaireRecyclerViewAdapter(questionnaires, listener)
         } else {
             throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }
-    }
-
-    override fun onAttachFragment(childFragment: Fragment) {
-        super.onAttachFragment(childFragment)
-    }
-
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
     }
 
     override fun onDetach() {

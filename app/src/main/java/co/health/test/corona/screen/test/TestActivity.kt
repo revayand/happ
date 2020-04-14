@@ -1,10 +1,10 @@
 package co.health.test.corona.screen.test
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import co.health.test.corona.R
+import co.health.test.corona.screen.utils.BaseActivity
 
-class TestActivity : AppCompatActivity() {
+class TestActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
