@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 import co.health.test.corona.repository.db.daos.QuestionDao
 import co.health.test.corona.repository.db.daos.QuestionnaireDao
 import co.health.test.corona.repository.db.entities.Question
 import co.health.test.corona.repository.db.entities.Questionnaire
 
 
+@TypeConverters(Converters::class)
 @Database(entities = [Questionnaire::class, Question::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -21,10 +23,11 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
-            }
+        fun getInstance(context: Context): AppDatabase = INSTANCE ?: synchronized(this) {
+            INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+
+
+        }
 
         private fun buildDatabase(context: Context) =
             Room.databaseBuilder(

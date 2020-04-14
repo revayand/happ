@@ -1,63 +1,125 @@
 package co.health.test.corona.screen.main.questionnaire
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import co.health.test.corona.R
+import co.health.test.corona.repository.db.entities.Questionnaire
+import co.health.test.corona.repository.db.entities.QuestionnaireState
+import co.health.test.corona.repository.manager.questionnaire.QuestionnaireManager
+import co.health.test.corona.screen.utils.LoadingLayout
+import io.reactivex.observers.DisposableSingleObserver
+import kotlinx.android.synthetic.main.fragment_questionnaire_list.*
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment]  subclass.
- * Use the [QuestionnaireFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class QuestionnaireFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    val viewModel:QuestionnaireViewModel by viewModel()
+
+    private var listener: OnListFragmentInteractionListener? = null
+
+    val questionnaireViewModel: QuestionnaireViewModel by viewModel()
+
+    val questionnaireManager: QuestionnaireManager by inject()
+
+    private var questionnaires: MutableList<Questionnaire> = ArrayList()
+    private var adapter = QuestionnaireRecyclerViewAdapter(questionnaires, listener)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        questionnaireManager.addQuestionnaire(
+            Questionnaire(
+                "q1",
+                QuestionnaireState.FILLED,
+                System.currentTimeMillis()
+            )
+        ).subscribeWith(object : DisposableSingleObserver<Long>() {
+            override fun onSuccess(t: Long) {
+
+            }
+
+            override fun onError(e: Throwable) {
+
+            }
+        })
+        observableViewModel()
+
+    }
+
+    private fun observableViewModel() {
+        questionnaireViewModel.questionnaires.observe(this, Observer {
+            if (it == null)
+                return@Observer
+            questionnaires.clear()
+            questionnaires.addAll(it)
+            adapter.notifyDataSetChanged()
+        })
+
+        questionnaireViewModel.state.observe(this, Observer {
+            ll.state = it.first
+            if (ll.state == LoadingLayout.LoadingLayoutState.STATE_SHOW_ERROR)
+                it.second?.let { it1 -> ll.setError(it1) }
+        })
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_questionnaire, container, false)
+        return inflater.inflate(R.layout.fragment_questionnaire_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+
+            list.layoutManager = LinearLayoutManager(context)
+            list.adapter = adapter
+
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnListFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException("$context must implement OnListFragmentInteractionListener")
+        }
+    }
+
+    override fun onAttachFragment(childFragment: Fragment) {
+        super.onAttachFragment(childFragment)
+    }
+
+    override fun onAttach(activity: Activity) {
+        super.onAttach(activity)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }
+
+    interface OnListFragmentInteractionListener {
+        fun onListFragmentInteraction(item: Questionnaire?)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        questionnaireViewModel.fetch()
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment QuestionFragment.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            QuestionnaireFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+        fun newInstance() =
+            QuestionnaireFragment()
     }
 }
