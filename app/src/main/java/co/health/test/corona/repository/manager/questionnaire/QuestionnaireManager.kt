@@ -16,7 +16,7 @@ class QuestionnaireManager(private val questionnaireDao: QuestionnaireDao) {
             .observeOn(AndroidSchedulers.mainThread())
     }
 
-    fun getQuestionsByQuestionnaireId(id: Long): Observable<List<QuestionnaireWithQuestions>> {
+    fun getQuestionsByQuestionnaireId(id: Long): Observable<QuestionnaireWithQuestions> {
         return questionnaireDao.getQuestionnaireByIdWithQuestions(id).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }

@@ -35,22 +35,32 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <View
+    <LinearLayout
         android:id="@+id/v_answer"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-
+        android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_question" />
+
 
     <Button
         android:id="@+id/btn_apply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
+
         android:text="ثبت"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/v_answer" />
+
+    <Button
+        android:id="@+id/btn_previus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="قبلی"
+        app:layout_constraintLeft_toLeftOf="parent"
+
         app:layout_constraintTop_toBottomOf="@id/v_answer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

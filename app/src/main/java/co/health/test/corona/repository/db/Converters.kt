@@ -24,4 +24,14 @@ class Converters {
     fun questionnaireStateToInt(value: QuestionnaireState): Int {
         return value.ordinal
     }
+
+    @TypeConverter
+    fun listToString(value: List<String>?): String? {
+        return value?.joinToString(",")
+    }
+
+    @TypeConverter
+    fun stringToList(value: String?): List<String>? {
+        return value?.split(",")
+    }
 }

@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
 data class Question(
     val question: String,
     @Embedded val answer: Answer,
-    @ColumnInfo(name = "parent_questionnaire_id") val questionnaireId: String,
+    @ColumnInfo(name = "parent_questionnaire_id") val questionnaireId: Long,
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "question_id")
     val id: Long = 0
 )
 
-data class Answer(val data: String, val type: AnswerType)
+data class Answer(val data: String?, val type: AnswerType,val selections:List<String>?)
 
 enum class AnswerType {
     TEXT, RADIO, CHECK

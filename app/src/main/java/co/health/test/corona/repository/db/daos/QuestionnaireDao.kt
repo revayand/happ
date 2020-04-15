@@ -21,6 +21,6 @@ interface QuestionnaireDao {
 
     @Transaction
     @Query("select * FROM questionnaire WHERE questionnaire_id=:id")
-    fun getQuestionnaireByIdWithQuestions(id: Long): Observable<List<QuestionnaireWithQuestions>>
+    fun getQuestionnaireByIdWithQuestions(id: Long): Observable<QuestionnaireWithQuestions>
 
 }
