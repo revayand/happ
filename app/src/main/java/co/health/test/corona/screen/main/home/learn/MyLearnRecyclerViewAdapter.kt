@@ -1,16 +1,17 @@
 package co.health.test.corona.screen.main.home.learn
 
-import androidx.recyclerview.widget.RecyclerView
+
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
-
-
 import co.health.test.corona.screen.main.home.learn.LearnFragment.OnListFragmentInteractionListener
 import co.health.test.corona.screen.main.home.learn.dummy.DummyContent.DummyItem
-
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_learn.view.*
 
 /**
@@ -34,17 +35,27 @@ class MyLearnRecyclerViewAdapter(
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0)
+            return ViewType.HEADER.ordinal
+        else ViewType.ITEM.ordinal
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
+        val view = if (viewType == ViewType.HEADER.ordinal) LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_learn, parent, false)
+        else LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_learn, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.id
-        holder.mContentView.text = item.content
+        holder.mDesc.text = item.content
+        holder.mDate.text = item.date
+        Glide.with(holder.mView.context).load(item.srcImage).centerCrop()
 
+            .into(holder.img)
         with(holder.mView) {
             tag = item
             setOnClickListener(mOnClickListener)
@@ -54,11 +65,15 @@ class MyLearnRecyclerViewAdapter(
     override fun getItemCount(): Int = mValues.size
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mIdView: TextView = mView.item_number
-        val mContentView: TextView = mView.content
-
+        val mDate: TextView = mView.tv_date
+        val mDesc: TextView = mView.tv_desc
+        val img: ImageView = mView.iv
         override fun toString(): String {
-            return super.toString() + " '" + mContentView.text + "'"
+            return super.toString() + " '" + mDesc.text + "'"
         }
+    }
+
+    private enum class ViewType {
+        HEADER, ITEM
     }
 }

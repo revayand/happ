@@ -1,24 +1,25 @@
-package co.health.test.corona.screen.main.home.learn
+package co.health.test.corona.screen.main.home.question
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import co.health.test.corona.R
-import co.health.test.corona.screen.main.home.learn.dummy.DummyContent
-import co.health.test.corona.screen.main.home.learn.dummy.DummyContent.DummyItem
+
+import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire.DummyItem
+import co.health.test.corona.screen.main.home.question.dummy.DummyContentt
+import kotlinx.android.synthetic.main.fragment_question_list.*
 
 /**
  * A fragment representing a list of Items.
  * Activities containing this fragment MUST implement the
- * [LearnFragment.OnListFragmentInteractionListener] interface.
+ * [QuestionFragment.OnListFragmentInteractionListener] interface.
  */
-class LearnFragment : Fragment() {
+class QuestionFragment : Fragment() {
 
     // TODO: Customize parameters
     private var columnCount = 1
@@ -33,28 +34,28 @@ class LearnFragment : Fragment() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        // Set the adapter
-        if (view is RecyclerView) {
-
-            view.layoutManager = when {
-                columnCount <= 1 -> LinearLayoutManager(context)
-                else -> GridLayoutManager(context, columnCount)
-            }
-            val a = MyLearnRecyclerViewAdapter(DummyContent.ITEMS, listener)
-            view.adapter =a
-
-        }
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_learn_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_question_list, container, false)
+
+        // Set the adapter
+        return view
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+            with(list) {
+                layoutManager = when {
+                    columnCount <= 1 -> LinearLayoutManager(context)
+                    else -> GridLayoutManager(context, columnCount)
+                }
+                adapter = MyQuestionRecyclerViewAdapter(DummyContentt.ITEMS, listener)
+            }
+
+
+    }
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
@@ -91,7 +92,7 @@ class LearnFragment : Fragment() {
         // TODO: Customize parameter initialization
         @JvmStatic
         fun newInstance(columnCount: Int) =
-            LearnFragment().apply {
+            QuestionFragment().apply {
                 arguments = Bundle().apply {
                     putInt(ARG_COLUMN_COUNT, columnCount)
                 }

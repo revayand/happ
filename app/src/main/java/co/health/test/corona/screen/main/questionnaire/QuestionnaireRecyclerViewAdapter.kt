@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.Questionnaire
+import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment.OnListFragmentInteractionListener
 import kotlinx.android.synthetic.main.row_questionnnaire.view.*
 
 
 class QuestionnaireRecyclerViewAdapter(
-    private val mValues: List<Questionnaire>,
+    private val mValues: List<QuestionnaireWithQuestions>,
     private val mListener: OnListFragmentInteractionListener?
 ) : RecyclerView.Adapter<QuestionnaireRecyclerViewAdapter.ViewHolder>() {
 
@@ -21,7 +22,7 @@ class QuestionnaireRecyclerViewAdapter(
 
     init {
         mOnClickListener = View.OnClickListener { v ->
-            val item = v.tag as Questionnaire
+            val item = v.tag as QuestionnaireWithQuestions
             mListener?.onListFragmentInteraction(item)
         }
     }
@@ -35,7 +36,7 @@ class QuestionnaireRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
 
-        holder.mContentView.text = item.title
+        holder.mContentView.text = item.questionnaire.title
 
         with(holder.mView) {
             tag = item

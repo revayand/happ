@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.Questionnaire
+import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.screen.main.home.HomeFragment
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment
 import co.health.test.corona.screen.main.settings.SettingsFragment
@@ -44,9 +45,9 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         return true
     }
 
-    override fun onListFragmentInteraction(item: Questionnaire?) {
+    override fun onListFragmentInteraction(item: QuestionnaireWithQuestions?) {
         val intent = Intent(this, TestActivity::class.java).apply {
-            putExtra("questionnaireId", item?.id)
+            putExtra("questionnaireId", item?.questionnaire?.title)
         }
         startActivity(intent)
     }

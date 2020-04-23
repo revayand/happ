@@ -10,6 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.Questionnaire
+import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
+import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire
+import co.health.test.corona.screen.main.home.question.dummy.DummyContentt
 import co.health.test.corona.screen.utils.LoadingLayout
 import kotlinx.android.synthetic.main.fragment_questionnaire_list.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -67,7 +70,7 @@ class QuestionnaireFragment : Fragment() {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
             listener = context
-            adapter = QuestionnaireRecyclerViewAdapter(questionnaires, listener)
+            adapter = QuestionnaireRecyclerViewAdapter(DummyContentQuestionnaire.ITEMS, listener)
         } else {
             throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }
@@ -79,7 +82,7 @@ class QuestionnaireFragment : Fragment() {
     }
 
     interface OnListFragmentInteractionListener {
-        fun onListFragmentInteraction(item: Questionnaire?)
+        fun onListFragmentInteraction(item: QuestionnaireWithQuestions?)
     }
 
     override fun onResume() {

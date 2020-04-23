@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.core.view.setPadding
-import androidx.lifecycle.Observer
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.AnswerType
 import co.health.test.corona.repository.db.entities.Question
+import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire
 import co.health.test.corona.screen.utils.BaseActivity
 import co.health.test.corona.screen.utils.toFarsi
 import kotlinx.android.synthetic.main.activity_test.*
@@ -19,7 +19,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class TestActivity : BaseActivity(), View.OnClickListener {
 
-    var questionnaireId: Long = 0L
+    var questionnaireId: String = ""
 
     val testViewModel: TestViewModel by viewModel()
     var index = 0
@@ -29,7 +29,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
-        questionnaireId = intent.getLongExtra("questionnaireId", 0L)
+        questionnaireId = intent.getStringExtra("questionnaireId")
         observableViewModel()
         btn_apply.setOnClickListener(this)
         btn_previus.setOnClickListener(this)
@@ -37,14 +37,24 @@ class TestActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun observableViewModel() {
-        testViewModel.questions.observe(this, Observer {
-            if (it == null)
-                return@Observer
-            questions.clear()
-            questions.addAll(it)
-            tv_total_q.text = questions.size.toString().toFarsi()
-            display(questions[index], index)
-        })
+        val a =
+            DummyContentQuestionnaire.ITEMS.filter { it.questionnaire.title.trim() == questionnaireId.trim() }
+                .map { it.questions }.firstOrNull()
+
+        questions.clear()
+        questions.addAll(a!!)
+        tv_total_q.text = questions.size.toString().toFarsi()
+        display(questions[index], index)
+
+//        testViewModel.questions.observe(this, Observer {
+//            if (it == null)
+//                return@Observer
+//            questions.clear()
+//            questions.addAll(it)
+//            tv_total_q.text = questions.size.toString().toFarsi()
+//            display(questions[index], index)
+//        })
+
 
 //        testViewModel.state.observe(this, Observer {
 //            ll.state = it.first
@@ -117,7 +127,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        testViewModel.fetch(questionnaireId)
+//        testViewModel.fetch(questionnaireId)
     }
 
     override fun onClick(v: View?) {

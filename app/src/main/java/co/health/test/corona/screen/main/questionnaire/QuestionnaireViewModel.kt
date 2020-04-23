@@ -19,8 +19,8 @@ class QuestionnaireViewModel(
 
     fun fetch() {
 
-        fill()
-
+//        fill()
+//
         state.value = Pair(LoadingLayout.LoadingLayoutState.STATE_LOADING, null)
         compositeDisposable.add(questionnaireManager.getAllQuestionnaire().subscribeWith(object :
             DisposableObserver<List<Questionnaire>>() {
