@@ -20,6 +20,7 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         nav.setOnNavigationItemSelectedListener(this)
+        nav.selectedItemId = R.id.navigation_home
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

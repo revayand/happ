@@ -3,16 +3,18 @@
 
     <item
         android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_48dp"
         android:title="خانه" />
 
 
     <item
         android:id="@+id/navigation_question"
+        android:icon="@drawable/ic_content_paste_black_48dp"
 
         android:title="پرسشنامه" />
     <item
         android:id="@+id/navigation_settings"
-
+        android:icon="@drawable/ic_mode_edit_black_48dp"
         android:title="تنظیمات" />
 
 </menu>

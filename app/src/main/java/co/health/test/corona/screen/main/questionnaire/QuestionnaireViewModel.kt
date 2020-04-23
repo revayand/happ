@@ -45,14 +45,14 @@ class QuestionnaireViewModel(
     private fun fill() {
         questionnaireManager.addQuestionnaire(
             Questionnaire(
-                "پرسشنامه ۱",
+                "خطای شناختی کرونا",
                 QuestionnaireState.FILLED
             )
         ).subscribeWith(object : DisposableSingleObserver<Long>() {
             override fun onSuccess(t: Long) {
                 questionManager.addQuestion(
                     Question(
-                        "سوال ۱",
+                        "احساس خود در مورد وضعیت پیش آمده از ویروس کرونا را به اختصار توضیح دهید",
                         Answer(null, AnswerType.TEXT, null),
                         t
                     )
@@ -66,9 +66,11 @@ class QuestionnaireViewModel(
                 })
                 questionManager.addQuestion(
                     Question(
-                        "سوال 2", Answer(
+                        "چه احساسی دارید؟", Answer(
                             null, AnswerType.CHECK,
-                            arrayListOf("گزینه ۱", "گزینه 3", "گزینه 2")
+                            arrayListOf(
+                                "افسردگی","گناه","اندوه","خجالت","خشم","رنجش","ناامیدی","اضطراب","حقارت","تنهایی","ناتوانی","ابهام"
+                            )
                         ), t
                     )
                 ).subscribeWith(object : DisposableSingleObserver<Long>() {
@@ -82,9 +84,9 @@ class QuestionnaireViewModel(
 
                 questionManager.addQuestion(
                     Question(
-                        "سوال 3", Answer(
+                        "تقريباً منحصراً بر جنبه های منفی متمركز می شويد و به ندرت به جنبه های مثبت توجه می كنيد. مثلاً: \"آمار دقیق فوتی ها را می دانید ولی توجهی به آمار بهبودی ها ندارید\".", Answer(
                             null, AnswerType.RADIO,
-                            arrayListOf("گزینه ۱", "گزینه 3", "گزینه 2")
+                            arrayListOf("ندارم","تا حدودی دارم")
                         ), t
                     )
                 ).subscribeWith(object : DisposableSingleObserver<Long>() {

@@ -2,14 +2,17 @@ package co.health.test.corona.screen.test
 
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.view.setPadding
 import androidx.lifecycle.Observer
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.AnswerType
 import co.health.test.corona.repository.db.entities.Question
 import co.health.test.corona.screen.utils.BaseActivity
+import co.health.test.corona.screen.utils.toFarsi
 import kotlinx.android.synthetic.main.activity_test.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -39,7 +42,8 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                 return@Observer
             questions.clear()
             questions.addAll(it)
-            display(questions[index])
+            tv_total_q.text = questions.size.toString().toFarsi()
+            display(questions[index], index)
         })
 
 //        testViewModel.state.observe(this, Observer {
@@ -49,46 +53,51 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 //        })
     }
 
-    fun display(question: Question) {
+    private fun display(question: Question, index: Int) {
         tv_question.text = question.question
+        tv_current_q.text = (index + 1).toString().toFarsi()
         v_answer.removeAllViews()
         when (question.answer.type) {
             AnswerType.CHECK -> {
 
 
                 for (i in question.answer.selections!!.indices) {
-                    val row = TableRow(this)
-                    row.id = i
-                    row.layoutParams = LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
+
+
                     val checkBox = CheckBox(this)
 //                    checkBox.setOnCheckedChangeListener(this)
+                    checkBox.layoutParams = LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    checkBox.setPadding(20)
                     checkBox.id = i
                     checkBox.text = question.answer.selections[i]
-                    row.addView(checkBox)
-                    v_answer.addView(row)
+
+                    v_answer.addView(checkBox)
                 }
+
 
             }
             AnswerType.RADIO -> {
 
                 val radioGroup = RadioGroup(this)
-
+                radioGroup.orientation = LinearLayout.VERTICAL
+                radioGroup.gravity = Gravity.RIGHT
                 for (i in question.answer.selections!!.indices) {
-                    val row = TableRow(this)
-                    row.id = i
-                    row.layoutParams = LinearLayout.LayoutParams(
-                        ViewGroup.LayoutParams.MATCH_PARENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT
-                    )
+
                     val checkBox = RadioButton(this)
 //                    checkBox.setOnCheckedChangeListener(this)
+                    checkBox.layoutParams = LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    checkBox.setPadding(20)
+
                     checkBox.id = i
                     checkBox.text = question.answer.selections[i]
-                    row.addView(checkBox)
-                    radioGroup.addView(row)
+
+                    radioGroup.addView(checkBox)
                 }
                 v_answer.addView(radioGroup)
             }
@@ -115,11 +124,16 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
         if (v == btn_apply) {
             index++
-            display(questions[index])
+            if (index == questions.size)
+                index = 0
+            display(questions[index], index)
         } else
             if (v == btn_previus) {
+
                 index--
-                display(questions[index])
+                if (index == -1)
+                    index = questions.size - 1
+                display(questions[index], index)
             }
     }
 }
