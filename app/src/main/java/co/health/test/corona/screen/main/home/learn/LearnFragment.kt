@@ -1,6 +1,8 @@
 package co.health.test.corona.screen.main.home.learn
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
 import co.health.test.corona.screen.main.home.learn.dummy.DummyContent
 import co.health.test.corona.screen.main.home.learn.dummy.DummyContent.DummyItem
+
 
 /**
  * A fragment representing a list of Items.
@@ -43,7 +46,7 @@ class LearnFragment : Fragment() {
                 else -> GridLayoutManager(context, columnCount)
             }
             val a = MyLearnRecyclerViewAdapter(DummyContent.ITEMS, listener)
-            view.adapter =a
+            view.adapter = a
 
         }
     }
@@ -57,8 +60,12 @@ class LearnFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
-            listener = context
+        listener = object : OnListFragmentInteractionListener {
+            override fun onListFragmentInteraction(item: DummyItem?) {
+                val browserIntent =
+                    Intent(Intent.ACTION_VIEW, Uri.parse("https://isna.ir${item?.href}"))
+                startActivity(browserIntent)
+            }
         }
     }
 

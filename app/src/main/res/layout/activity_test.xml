@@ -26,92 +26,34 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <TextView
+    <ScrollView
         android:id="@+id/tv_question"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:text="fdsfdfdsfdsfdsf"
-        android:textColor="@color/black"
-        android:textSize="15sp"
+        android:layout_height="0dp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll_counter" />
-
-    <GridLayout
-        android:id="@+id/v_answer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="3"
-        android:columnOrderPreserved="true"
-        android:gravity="right"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_question" />
-
-
-    <Button
-        android:id="@+id/btn_apply"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-
-        android:text="ثبت"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" >
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/ll_counter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
+            <Button
+                android:id="@+id/btn_apply"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
 
-        <TextView
-            style="@style/AppTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="سوال " />
+                android:text="ثبت"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_current_q"
-            style="@style/AppTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5" />
-
-        <TextView
-            style="@style/AppTextView"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" از " />
-
-        <TextView
-            android:id="@+id/tv_total_q"
-            style="@style/AppTextView"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_previus"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="قبلی"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package co.health.test.corona.screen.test
 
 import android.os.Bundle
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -12,8 +13,8 @@ import co.health.test.corona.repository.db.entities.AnswerType
 import co.health.test.corona.repository.db.entities.Question
 import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire
 import co.health.test.corona.screen.utils.BaseActivity
-import co.health.test.corona.screen.utils.toFarsi
 import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.test_row.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
@@ -32,19 +33,23 @@ class TestActivity : BaseActivity(), View.OnClickListener {
         questionnaireId = intent.getStringExtra("questionnaireId")
         observableViewModel()
         btn_apply.setOnClickListener(this)
-        btn_previus.setOnClickListener(this)
 
     }
 
     private fun observableViewModel() {
-        val a =
-            DummyContentQuestionnaire.ITEMS.filter { it.questionnaire.title.trim() == questionnaireId.trim() }
-                .map { it.questions }.firstOrNull()
+        val t =
+            DummyContentQuestionnaire.ITEMS.first { it.questionnaire.title.trim() == questionnaireId.trim() }
+
+
+        val a = t.questions
+
+        toolbar_title.text = t.questionnaire.title
 
         questions.clear()
         questions.addAll(a!!)
-        tv_total_q.text = questions.size.toString().toFarsi()
-        display(questions[index], index)
+
+//        display(questions[index], index)
+        diss()
 
 //        testViewModel.questions.observe(this, Observer {
 //            if (it == null)
@@ -63,10 +68,18 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 //        })
     }
 
-    private fun display(question: Question, index: Int) {
-        tv_question.text = question.question
-        tv_current_q.text = (index + 1).toString().toFarsi()
-        v_answer.removeAllViews()
+    private fun diss() {
+        for ((i, q) in questions.withIndex()) {
+            val vq = LayoutInflater.from(this).inflate(R.layout.test_row, ll, false)
+            val vqf = display(q, i, vq)
+            ll.addView(vqf, i)
+        }
+    }
+
+    private fun display(question: Question, index: Int, view: View): View {
+        view.tv_question.text = "${index + 1}. ${question.question}"
+//        tv_current_q.text = (index + 1).toString().toFarsi()
+        view.v_answer.removeAllViews()
         when (question.answer.type) {
             AnswerType.CHECK -> {
 
@@ -84,7 +97,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                     checkBox.id = i
                     checkBox.text = question.answer.selections[i]
 
-                    v_answer.addView(checkBox)
+                    view.v_answer.addView(checkBox)
                 }
 
 
@@ -109,7 +122,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
                     radioGroup.addView(checkBox)
                 }
-                v_answer.addView(radioGroup)
+                view.v_answer.addView(radioGroup)
             }
             AnswerType.TEXT -> {
 
@@ -119,9 +132,10 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
 
-                v_answer.addView(row)
+                view.v_answer.addView(row)
             }
         }
+        return view
     }
 
 
@@ -136,14 +150,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
             index++
             if (index == questions.size)
                 index = 0
-            display(questions[index], index)
-        } else
-            if (v == btn_previus) {
-
-                index--
-                if (index == -1)
-                    index = questions.size - 1
-                display(questions[index], index)
-            }
+//            display(questions[index], index)
+        }
     }
 }

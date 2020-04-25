@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.health.test.corona">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screen.test.TestActivity"></activity>
-        <activity android:name=".screen.main.MainActivity" />
+        <activity android:name=".screen.sendquestion.SendQuestionActivity"></activity>
         <activity android:name=".screen.info.InfoActivity" />
-        <activity android:name=".screen.login.LoginActivity">
+        <activity android:name=".screen.history.HistoryActivity" />
+        <activity android:name=".screen.test.TestActivity" />
+        <activity android:name=".screen.login.LoginActivity" />
+        <activity android:name=".screen.main.MainActivity" />
+        <activity android:name=".screen.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

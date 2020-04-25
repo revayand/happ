@@ -41,9 +41,11 @@ object DummyContent {
     private fun createDummyItem(position: Int): DummyItem {
         val obj = jsonArray.getJSONObject(position)
         val src = obj.getJSONObject("figure").getJSONObject("a").getJSONObject("img").getString("@src")
+        val href = obj.getJSONObject("figure").getJSONObject("a").getString("@href")
+
         val title = obj.getJSONObject("figure").getJSONObject("a").getJSONObject("img").getString("@alt")
         val date = obj.getJSONObject("div").getJSONObject("time").getJSONObject("a").getString("@title")
-        return DummyItem(position.toString(), title, date,src)
+        return DummyItem(position.toString(), title, date,src,href)
     }
 
     private fun makeDetails(position: Int): String {
@@ -58,7 +60,7 @@ object DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    data class DummyItem(val id: String, val content: String, val date: String,val srcImage:String) {
+    data class DummyItem(val id: String, val content: String, val date: String,val srcImage:String,val href:String) {
         override fun toString(): String = content
     }
 }

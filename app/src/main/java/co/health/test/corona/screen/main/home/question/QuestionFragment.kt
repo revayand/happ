@@ -2,16 +2,17 @@ package co.health.test.corona.screen.main.home.question
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import co.health.test.corona.R
-
 import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire.DummyItem
 import co.health.test.corona.screen.main.home.question.dummy.DummyContentt
+import co.health.test.corona.screen.sendquestion.SendQuestionActivity
+import co.health.test.corona.screen.utils.startActivity
 import kotlinx.android.synthetic.main.fragment_question_list.*
 
 /**
@@ -46,16 +47,17 @@ class QuestionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
-            with(list) {
-                layoutManager = when {
-                    columnCount <= 1 -> LinearLayoutManager(context)
-                    else -> GridLayoutManager(context, columnCount)
-                }
-                adapter = MyQuestionRecyclerViewAdapter(DummyContentt.ITEMS, listener)
+        with(list) {
+            layoutManager = when {
+                columnCount <= 1 -> LinearLayoutManager(context)
+                else -> GridLayoutManager(context, columnCount)
             }
-
+            adapter = MyQuestionRecyclerViewAdapter(DummyContentt.ITEMS, listener)
+        }
+        btn_apply.setOnClickListener { startActivity(SendQuestionActivity::class.java) }
 
     }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
