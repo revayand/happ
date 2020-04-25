@@ -14,7 +14,7 @@
         android:title="پرسشنامه" />
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_mode_edit_black_48dp"
-        android:title="تنظیمات" />
+        android:icon="@drawable/ic_people_black_24dp"
+        android:title="کاربری" />
 
 </menu>

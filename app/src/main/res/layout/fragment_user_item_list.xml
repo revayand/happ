@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="co.health.test.corona.screen.main.settings.UserItemFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".screen.main.settings.UserItemFragment"
+        tools:listitem="@layout/fragment_user_item" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_add_black_24dp"
+        app:fabSize="normal"
+        android:tint="@color/white"
+        android:id="@+id/fab_add"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

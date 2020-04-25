@@ -9,6 +9,7 @@ import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.screen.main.home.HomeFragment
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment
 import co.health.test.corona.screen.main.settings.SettingsFragment
+import co.health.test.corona.screen.main.settings.UserItemFragment
 import co.health.test.corona.screen.test.TestActivity
 import co.health.test.corona.screen.utils.BaseActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,7 +39,7 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
             }
             R.id.navigation_settings -> {
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.frame, SettingsFragment.newInstance("", ""))
+                    .replace(R.id.frame, UserItemFragment.newInstance(1))
                     .commit()
             }
         }
