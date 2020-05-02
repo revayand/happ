@@ -8,19 +8,19 @@ import android.widget.TextView
 import co.health.test.corona.R
 
 
-import co.health.test.corona.screen.main.settings.UserItemFragment.OnListFragmentInteractionListener
+import co.health.test.corona.screen.main.settings.UserItemFragment.OnUserListFragmentInteractionListener
 import co.health.test.corona.screen.main.settings.dummy.DummyContent.DummyItem
 
 import kotlinx.android.synthetic.main.fragment_user_item.view.*
 
 /**
  * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
+ * specified [OnUserListFragmentInteractionListener].
  * TODO: Replace the implementation with code for your data type.
  */
 class MyUserItemRecyclerViewAdapter(
     private val mValues: List<DummyItem>,
-    private val mListener: OnListFragmentInteractionListener?
+    private val mListenerUser: OnUserListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MyUserItemRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
@@ -30,7 +30,7 @@ class MyUserItemRecyclerViewAdapter(
             val item = v.tag as DummyItem
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
+            mListenerUser?.onUserListFragmentInteraction(item)
         }
     }
 

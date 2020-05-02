@@ -4,23 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".screen.info.InfoActivity">
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:text="اطلاعات فردی"
             android:id="@+id/toolbar_title"
+            style="@style/AppToolbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/AppToolbar"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:text="اطلاعات فردی" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -31,12 +33,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
@@ -46,9 +48,10 @@
                 android:layout_margin="5dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:gravity="left"
                 android:text="نام:" />
 
         </LinearLayout>
@@ -56,8 +59,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
@@ -67,17 +70,18 @@
                 android:layout_margin="5dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="نام خانوادگی" />
+                android:text="نام خانوادگی:" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
@@ -87,7 +91,8 @@
                 android:layout_margin="5dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="استان: " />
@@ -96,8 +101,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
@@ -107,7 +112,8 @@
                 android:layout_margin="5dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="شهر:" />
@@ -117,19 +123,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
             <Spinner
-                android:entries="@array/ages"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"
+                android:entries="@array/ages" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="سن: " />
@@ -139,19 +146,20 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
 
             <Spinner
-                android:entries="@array/educations"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp" />
+                android:layout_margin="5dp"
+                android:entries="@array/educations" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="میزان تحصیلات: " />
@@ -159,9 +167,10 @@
         </LinearLayout>
 
         <LinearLayout
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
             <RadioGroup
@@ -181,7 +190,8 @@
             </RadioGroup>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="جنسیت:" />
@@ -191,8 +201,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_height="55dp"
+            android:gravity="center_vertical|right"
             android:orientation="horizontal">
 
             <RadioGroup
@@ -217,7 +227,8 @@
             </RadioGroup>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
+                android:gravity="left"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="وضعیت تاهل:" />
@@ -226,9 +237,9 @@
 
         <Button
             android:id="@+id/btn_apply"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:text="ثبت" />

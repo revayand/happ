@@ -3,7 +3,7 @@ package co.health.test.corona.screen.splash
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import co.health.test.corona.R
-import co.health.test.corona.screen.info.InfoActivity
+import co.health.test.corona.screen.main.MainActivity
 import co.health.test.corona.screen.utils.startActivity
 import java.util.*
 
@@ -14,7 +14,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         val a = Timer().schedule(object : TimerTask() {
             override fun run() {
-                startActivity(InfoActivity::class.java)
+
+                startActivity(MainActivity::class.java)
+                finish()
             }
         }, 3000)
     }

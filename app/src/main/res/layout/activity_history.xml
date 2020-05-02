@@ -60,19 +60,22 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="بله" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -102,19 +105,25 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="بله" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -144,19 +153,25 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="بله" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -185,19 +200,25 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="بله" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -227,19 +248,25 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="بله" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -289,34 +316,49 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="پدر" />
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="مادر" />
-                    <RadioButton
 
+                    <RadioButton
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خواهر" />
-                    <RadioButton
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="برادر" />
                     <RadioButton
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="برادر" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خیر" />
                 </RadioGroup>
 
@@ -346,43 +388,64 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
+
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
+                    android:layoutDirection="rtl"
                     android:orientation="vertical">
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="پدر" />
 
                     <RadioButton
-
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="عمه" />
-                    <RadioButton
 
+                    <RadioButton
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="عمو" />
-                    <RadioButton
 
+                    <RadioButton
                         android:layout_width="wrap_content"
+
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="خاله" />
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="دایی" />
-                    <RadioButton
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="مادر بزرگ و پدر بزرگ (مادری)" />
                     <RadioButton
                         android:layout_width="wrap_content"
+
                         android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="دایی" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+
+
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="مادر بزرگ و پدر بزرگ (مادری)" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
                         android:text="مادر بزرگ و پدر بزرگ (پدری)" />
                 </RadioGroup>
 

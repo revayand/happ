@@ -1,5 +1,7 @@
 package co.health.test.corona.di
 
+import android.content.Context
+import android.content.SharedPreferences
 import co.health.test.corona.repository.db.AppDatabase
 import co.health.test.corona.repository.manager.questionnaire.QuestionManager
 import co.health.test.corona.repository.manager.questionnaire.QuestionnaireManager
@@ -17,4 +19,5 @@ val modules = module {
     single { QuestionManager(get()) }
     viewModel { QuestionnaireViewModel(get(), get()) }
     viewModel { TestViewModel(get()) }
+    single { androidApplication().getSharedPreferences("Corona", Context.MODE_PRIVATE) }
 }

@@ -4,9 +4,7 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_48dp"
-        android:title="خانه" />
-
-
+        android:title="آموزش" />
     <item
         android:id="@+id/navigation_question"
         android:icon="@drawable/ic_content_paste_black_48dp"
@@ -15,6 +13,6 @@
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_people_black_24dp"
-        android:title="کاربری" />
+        android:title="مراجعین" />
 
 </menu>

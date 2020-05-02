@@ -6,9 +6,7 @@
     android:name="co.health.test.corona.screen.main.home.learn.LearnFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="16dp"
     android:background="@color/gray"
-    android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
     tools:context=".screen.main.home.learn.LearnFragment"
     tools:listitem="@layout/fragment_learn" />
