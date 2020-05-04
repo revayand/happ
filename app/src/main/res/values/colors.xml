@@ -6,7 +6,9 @@
     <color name="gray_dark">#CACACA</color>
     <color name="white">#FFFFFF</color>
     <color name="gray">#EEEEEE</color>
+    <color name="gray_light">#efefef</color>
     <color name="black">#000000</color>
+    <color name="green">#369841</color>
 
 
 </resources>

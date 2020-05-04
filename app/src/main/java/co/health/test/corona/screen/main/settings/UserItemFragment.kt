@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import co.health.test.corona.R
+import co.health.test.corona.repository.db.entities.Users
+import co.health.test.corona.repository.manager.questionnaire.UsersManager
 import co.health.test.corona.screen.info.InfoActivity
-import co.health.test.corona.screen.main.settings.dummy.DummyContent
-import co.health.test.corona.screen.main.settings.dummy.DummyContent.DummyItem
 import co.health.test.corona.screen.utils.startActivity
+import io.reactivex.observers.DisposableObserver
 import kotlinx.android.synthetic.main.fragment_user_item_list.*
+import org.koin.android.ext.android.inject
 import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView
 
 /**
@@ -22,9 +24,13 @@ import uk.co.deanwild.materialshowcaseview.MaterialShowcaseView
  * [UserItemFragment.OnUserListFragmentInteractionListener] interface.
  */
 class UserItemFragment : Fragment() {
+    private lateinit var userAdapter: MyUserItemRecyclerViewAdapter
+
+    val usersManager: UsersManager by inject()
 
     // TODO: Customize parameters
     private var columnCount = 1
+    private val items: MutableList<Users> = ArrayList()
 
     private var listenerUser: OnUserListFragmentInteractionListener? = null
 
@@ -52,13 +58,36 @@ class UserItemFragment : Fragment() {
                 columnCount <= 1 -> LinearLayoutManager(context)
                 else -> GridLayoutManager(context, columnCount)
             }
-            adapter = MyUserItemRecyclerViewAdapter(DummyContent.ITEMS, listenerUser)
+            userAdapter = MyUserItemRecyclerViewAdapter(items, listenerUser)
+            adapter = userAdapter
         }
         fab_add.setOnClickListener { startActivity(InfoActivity::class.java) }
 
         MaterialShowcaseView.Builder(activity).setTarget(fab_add)
             .setContentText("خودتان و افراد خانواده را اضافه کنید").setDismissText("باشه")
             .singleUse("fab").show()
+        getUsers()
+    }
+
+     fun getUsers() {
+
+        usersManager.getAllUsers().subscribeWith(object : DisposableObserver<List<Users>>() {
+            override fun onComplete() {
+
+
+            }
+
+            override fun onNext(t: List<Users>) {
+                items.clear()
+                items.addAll(t)
+                userAdapter.notifyDataSetChanged()
+            }
+
+            override fun onError(e: Throwable) {
+
+            }
+        })
+
     }
 
     override fun onAttach(context: Context) {
@@ -89,7 +118,8 @@ class UserItemFragment : Fragment() {
      */
     interface OnUserListFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onUserListFragmentInteraction(item: DummyItem?)
+        fun onUserListFragmentInteraction(item: Users)
+        fun onLongUserListFragmentInteraction(item: Users)
     }
 
     companion object {

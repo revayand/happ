@@ -1,22 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package co.health.test.corona.screen.main.home.question.dummy
 
 import co.health.test.corona.repository.db.entities.*
@@ -933,9 +914,9 @@ object DummyContentQuestionnaire {
             )
         )
 
-        ITEMS.add(QuestionnaireWithQuestions(vasvasTestq,vasvalql))
-        ITEMS.add(QuestionnaireWithQuestions(afsordegiTestq,afsordegiql))
-        ITEMS.add(QuestionnaireWithQuestions(ezterabTestq,ezterabql))
+        ITEMS.add(QuestionnaireWithQuestions(vasvasTestq, vasvalql))
+        ITEMS.add(QuestionnaireWithQuestions(afsordegiTestq, afsordegiql))
+        ITEMS.add(QuestionnaireWithQuestions(ezterabTestq, ezterabql))
 
     }
 
@@ -945,7 +926,7 @@ object DummyContentQuestionnaire {
     }
 
     private fun createDummyItem(position: Int): DummyItem {
-        return DummyItem(position.toString(), "Item " + position, makeDetails(position), "")
+        return DummyItem(position.toString(), "Item $position", makeDetails(position), "")
     }
 
     private fun makeDetails(position: Int): String {

@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
-import co.health.test.corona.repository.db.entities.Questionnaire
 import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment.OnListFragmentInteractionListener
 import kotlinx.android.synthetic.main.row_questionnnaire.view.*
@@ -38,11 +37,11 @@ class QuestionnaireRecyclerViewAdapter(
         val item = mValues[position]
 
         holder.mContentView.text = item.questionnaire.title
-        if (item.questionnaire.title == "تست وسواس")
-            holder.mImg.setImageResource(R.drawable.vasvas)
-        else if (item.questionnaire.title == "تست اضطراب")
-            holder.mImg.setImageResource(R.drawable.ezterab)
-        else holder.mImg.setImageResource(R.drawable.afsordegi)
+        when (item.questionnaire.title) {
+            "تست وسواس" -> {holder.mImg.setImageResource(R.drawable.vasvas); holder.mPoint.text = "کمی وساسی هستید"}
+            "تست اضطراب" -> {holder.mImg.setImageResource(R.drawable.ezterab);holder.mPoint.text = "تست انجام نشده"}
+            else ->{ holder.mImg.setImageResource(R.drawable.afsordegi);holder.mPoint.text = "تست انجام نشده"}
+        }
 
         with(holder.mView) {
             tag = item
@@ -54,8 +53,9 @@ class QuestionnaireRecyclerViewAdapter(
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
 
-        val mImg :ImageView =mView.img
+        val mImg: ImageView = mView.img
         val mContentView: TextView = mView.tv
+        val mPoint: TextView = mView.tv_res
 
         override fun toString(): String {
             return super.toString() + " '" + mContentView.text + "'"

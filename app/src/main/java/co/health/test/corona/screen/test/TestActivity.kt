@@ -1,6 +1,7 @@
 package co.health.test.corona.screen.test
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.AnswerType
 import co.health.test.corona.repository.db.entities.Question
 import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire
+import co.health.test.corona.screen.result.ResultActivity
 import co.health.test.corona.screen.utils.BaseActivity
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.test_row.view.*
@@ -147,6 +149,10 @@ class TestActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         if (v == btn_apply) {
+            val next = Intent(this, ResultActivity::class.java)
+            next.putExtra("title", toolbar_title.text.toString())
+            next.putExtra("res", "شما بدون اختلال هستید")
+            startActivity(next)
             index++
             if (index == questions.size)
                 index = 0

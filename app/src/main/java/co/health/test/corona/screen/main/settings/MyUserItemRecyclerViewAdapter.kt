@@ -1,16 +1,15 @@
 package co.health.test.corona.screen.main.settings
 
-import androidx.recyclerview.widget.RecyclerView
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
-
-
+import co.health.test.corona.repository.db.entities.Users
 import co.health.test.corona.screen.main.settings.UserItemFragment.OnUserListFragmentInteractionListener
 import co.health.test.corona.screen.main.settings.dummy.DummyContent.DummyItem
-
 import kotlinx.android.synthetic.main.fragment_user_item.view.*
 
 /**
@@ -19,18 +18,26 @@ import kotlinx.android.synthetic.main.fragment_user_item.view.*
  * TODO: Replace the implementation with code for your data type.
  */
 class MyUserItemRecyclerViewAdapter(
-    private val mValues: List<DummyItem>,
+    private val mValues: List<Users>,
     private val mListenerUser: OnUserListFragmentInteractionListener?
 ) : RecyclerView.Adapter<MyUserItemRecyclerViewAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
+    private val mOnLongClickListener: View.OnLongClickListener
 
     init {
         mOnClickListener = View.OnClickListener { v ->
-            val item = v.tag as DummyItem
+            val item = v.tag as Users
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
             mListenerUser?.onUserListFragmentInteraction(item)
+        }
+        mOnLongClickListener = View.OnLongClickListener { v ->
+            val item = v.tag as Users
+            // Notify the active callbacks interface (the activity, if the fragment is attached to
+            // one) that an item has been selected.
+            mListenerUser?.onLongUserListFragmentInteraction(item)
+            return@OnLongClickListener true
         }
     }
 
@@ -42,12 +49,13 @@ class MyUserItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mValues[position]
-        holder.mIdView.text = item.name
-        holder.mContentView.text = item.state
+        holder.mIdView.text = item.detail?.fname + " " + item.detail.lname
+        holder.mContentView.text = ""
 
         with(holder.mView) {
             tag = item
             setOnClickListener(mOnClickListener)
+            setOnLongClickListener(mOnLongClickListener)
         }
     }
 
