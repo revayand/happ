@@ -5,10 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:listitem="@layout/row_questionnnaire" />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:background="@color/black"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:padding="10dp"
+                android:text="بر اساس تاریخچه پرسشنامه شما به شرح زیر است"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </ScrollView>
 </co.health.test.corona.screen.utils.LoadingLayout>

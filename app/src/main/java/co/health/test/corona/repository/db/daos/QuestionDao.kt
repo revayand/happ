@@ -15,5 +15,9 @@ interface QuestionDao {
     fun getQuestionById(id: Long): Observable<Question>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(question: Question):Single<Long>
+    fun insert(question: Question): Single<Long>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(question: List<Question>): Single<List<Long>>
+
 }

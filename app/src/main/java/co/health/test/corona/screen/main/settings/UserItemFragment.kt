@@ -1,6 +1,7 @@
 package co.health.test.corona.screen.main.settings
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,8 @@ class UserItemFragment : Fragment() {
     private lateinit var userAdapter: MyUserItemRecyclerViewAdapter
 
     val usersManager: UsersManager by inject()
+
+    val sharedPreferences:SharedPreferences by inject()
 
     // TODO: Customize parameters
     private var columnCount = 1
@@ -58,7 +61,7 @@ class UserItemFragment : Fragment() {
                 columnCount <= 1 -> LinearLayoutManager(context)
                 else -> GridLayoutManager(context, columnCount)
             }
-            userAdapter = MyUserItemRecyclerViewAdapter(items, listenerUser)
+            userAdapter = MyUserItemRecyclerViewAdapter(items,sharedPreferences.getLong("id",-1), listenerUser)
             adapter = userAdapter
         }
         fab_add.setOnClickListener { startActivity(InfoActivity::class.java) }
@@ -120,6 +123,7 @@ class UserItemFragment : Fragment() {
         // TODO: Update argument type and name
         fun onUserListFragmentInteraction(item: Users)
         fun onLongUserListFragmentInteraction(item: Users)
+        fun onChangeUser(item:Users)
     }
 
     companion object {

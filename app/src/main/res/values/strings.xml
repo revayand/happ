@@ -9,6 +9,9 @@
         <item>55-65</item>
         <item>65-75</item>
     </string-array>
+    <string-array name="cities">
+        <item>تهران</item>
+    </string-array>
     <string-array name="educations">
         <item>دیپلم - زیر دیپلم</item>
         <item>کارشناسی</item>

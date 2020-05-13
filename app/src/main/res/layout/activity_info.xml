@@ -54,6 +54,13 @@
                     android:layout_margin="5dp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f00"
+                    android:gravity="left"
+                    android:text="*" />
+
+                <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -77,6 +84,13 @@
                     android:layout_margin="5dp" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f00"
+                    android:gravity="left"
+                    android:text="*" />
+
+                <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
@@ -95,9 +109,17 @@
                 <EditText
                     android:id="@+id/et_phone"
                     android:layout_width="200dp"
+                    android:hint="۰۹۱۲۱۲۳۴۵۶۷"
                     android:layout_height="wrap_content"
                     android:layout_margin="5dp"
                     android:inputType="phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#f00"
+                    android:gravity="left"
+                    android:text="*" />
 
                 <TextView
                     android:layout_width="100dp"
@@ -114,11 +136,13 @@
                 android:gravity="center_vertical|right"
                 android:orientation="horizontal">
 
-
-                <EditText
+                <Spinner
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp" />
+                    android:layout_margin="5dp"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/cities" />
+
 
                 <TextView
                     android:layout_width="100dp"
@@ -136,10 +160,12 @@
                 android:orientation="horizontal">
 
 
-                <EditText
+                <Spinner
                     android:layout_width="200dp"
+                    android:spinnerMode="dialog"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp" />
+                    android:layout_margin="5dp"
+                    android:entries="@array/cities" />
 
                 <TextView
                     android:layout_width="100dp"

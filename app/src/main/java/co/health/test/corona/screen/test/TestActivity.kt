@@ -8,73 +8,84 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.AnswerType
 import co.health.test.corona.repository.db.entities.Question
-import co.health.test.corona.screen.main.home.question.dummy.DummyContentQuestionnaire
+import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
+import co.health.test.corona.repository.manager.questionnaire.QuestionnaireManager
 import co.health.test.corona.screen.result.ResultActivity
 import co.health.test.corona.screen.utils.BaseActivity
+import co.health.test.corona.screen.utils.showSnack
+import io.reactivex.observers.DisposableObserver
 import kotlinx.android.synthetic.main.activity_test.*
 import kotlinx.android.synthetic.main.test_row.view.*
+import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class TestActivity : BaseActivity(), View.OnClickListener {
 
-    var questionnaireId: String = ""
+    var questionnaireId: Long = -1L
 
     val testViewModel: TestViewModel by viewModel()
     var index = 0
 
     private var questions: MutableList<Question> = ArrayList()
+    val questionManager: QuestionnaireManager by inject()
+    val questionnaireManager: QuestionnaireManager by inject()
 
+    private val questionIds: MutableList<Int> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
-        questionnaireId = intent.getStringExtra("questionnaireId")
-        observableViewModel()
+        questionnaireId = intent.getLongExtra("questionnaireId", -1L)
+
         btn_apply.setOnClickListener(this)
+
+        getQuestions()
 
     }
 
-    private fun observableViewModel() {
-        val t =
-            DummyContentQuestionnaire.ITEMS.first { it.questionnaire.title.trim() == questionnaireId.trim() }
+    private fun getQuestions() {
+
+        questionnaireManager.getQuestionsByQuestionnaireId(questionnaireId)
+            .subscribeWith(object : DisposableObserver<QuestionnaireWithQuestions>() {
+                override fun onComplete() {
 
 
-        val a = t.questions
+                }
 
-        toolbar_title.text = t.questionnaire.title
-
-        questions.clear()
-        questions.addAll(a!!)
-
-//        display(questions[index], index)
-        diss()
-
-//        testViewModel.questions.observe(this, Observer {
-//            if (it == null)
-//                return@Observer
-//            questions.clear()
-//            questions.addAll(it)
-//            tv_total_q.text = questions.size.toString().toFarsi()
-//            display(questions[index], index)
-//        })
+                override fun onNext(t: QuestionnaireWithQuestions) {
 
 
-//        testViewModel.state.observe(this, Observer {
-//            ll.state = it.first
-//            if (ll.state == LoadingLayout.LoadingLayoutState.STATE_SHOW_ERROR)
-//                it.second?.let { it1 -> ll.setError(it1) }
-//        })
+                    val a = t.questions
+
+                    toolbar_title.text = t.questionnaire.title
+
+                    questions.clear()
+                    questions.addAll(a)
+
+                    diss()
+
+                }
+
+                override fun onError(e: Throwable) {
+
+                }
+            })
     }
 
     private fun diss() {
         for ((i, q) in questions.withIndex()) {
             val vq = LayoutInflater.from(this).inflate(R.layout.test_row, ll, false)
             val vqf = display(q, i, vq)
-            ll.addView(vqf, i)
+            if (i % 2 == 0)
+                vqf.setBackgroundColor(ContextCompat.getColor(this, R.color.gray_light))
+            else
+                vqf.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            ll.addView(vqf, i + 1)
         }
     }
 
@@ -109,6 +120,9 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                 val radioGroup = RadioGroup(this)
                 radioGroup.orientation = LinearLayout.VERTICAL
                 radioGroup.gravity = Gravity.RIGHT
+                radioGroup.id = index * 100
+                questionIds.add(index * 100)
+
                 for (i in question.answer.selections!!.indices) {
 
                     val checkBox = RadioButton(this)
@@ -119,7 +133,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                     )
                     checkBox.setPadding(20)
 
-                    checkBox.id = i
+                    checkBox.id = index * 100 + 1 + i
                     checkBox.text = question.answer.selections[i]
 
                     radioGroup.addView(checkBox)
@@ -149,9 +163,29 @@ class TestActivity : BaseActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         if (v == btn_apply) {
+
+            var res = 0
+            var sum = 0
+
+            for ((i, q) in questions.withIndex()) {
+                val rg = findViewById<RadioGroup>(i * 100)
+                val check = rg.checkedRadioButtonId
+                if (check == -1) {
+                    showSnack("لطفا به همه سوالات پاسخ دهید")
+                    return
+                }
+
+                res += (check % 100) - 1
+
+                sum += rg.childCount - 1
+            }
+
+
             val next = Intent(this, ResultActivity::class.java)
             next.putExtra("title", toolbar_title.text.toString())
-            next.putExtra("res", "شما بدون اختلال هستید")
+            next.putExtra("questionnaireId", questionnaireId)
+            next.putExtra("res", res)
+            next.putExtra("sum", sum)
             startActivity(next)
             index++
             if (index == questions.size)

@@ -325,7 +325,6 @@
                     <RadioButton
                         android:layout_width="wrap_content"
 
-
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
                         android:text="پدر" />
@@ -400,7 +399,7 @@
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="پدر" />
+                        android:text="خیر" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -408,45 +407,355 @@
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="عمه" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-
-
-                        android:layout_height="wrap_content"
-                        android:layoutDirection="rtl"
-                        android:text="عمو" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-
-
-                        android:layout_height="wrap_content"
-                        android:layoutDirection="rtl"
-                        android:text="خاله" />
+                        android:text="خانواده مادری" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="دایی" />
+                        android:text="خانواده پدری" />
+                </RadioGroup>
+
+            </LinearLayout>
+<!--neo-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray_dark" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="من آدم نگرانی هستم"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/rg_anxity"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_5"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_4"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_3"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بی تفاوت" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_2"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="مخالف" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_1"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا مخالف" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray_dark" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="من معمولا غذاهای جدید و نا آشنا را امتحان می کنم"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/rg_obsession1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_25"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_24"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_23"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بی تفاوت" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_22"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="مخالف" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_21"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا مخالف" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray_dark" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="من در کارهایم خیلی با برنامه نیستم"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/rg_obsession2"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_35"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_34"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_33"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بی تفاوت" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_32"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="مخالف" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_31"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا مخالف" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray_dark" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="من دوست دارم همیشه آدم های زیادی دور و برم باشند"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/rg_depression"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_45"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_44"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_43"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بی تفاوت" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_42"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="مخالف" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_41"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا مخالف" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/gray_dark" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="من اگر اشخاصی را دوست نداشته باشم از آن ها پنهان نمی کنم"
+                    android:textColor="@color/black" />
+
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:id="@+id/rg_decision"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layoutDirection="rtl"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_55"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="کاملا موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_54"
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="موافق" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_53"
+
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بی تفاوت" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
 
+                        android:id="@+id/rb_52"
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="مادر بزرگ و پدر بزرگ (مادری)" />
+                        android:text="مخالف" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+                        android:id="@+id/rb_51"
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="مادر بزرگ و پدر بزرگ (پدری)" />
+                        android:text="کاملا مخالف" />
                 </RadioGroup>
 
             </LinearLayout>

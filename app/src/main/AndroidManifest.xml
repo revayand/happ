@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".screen.result.ResultActivity"></activity>
+        <activity android:name=".screen.profile.ProfileActivity"></activity>
+        <activity android:name=".screen.result.ResultActivity" />
         <activity android:name=".screen.sendquestion.SendQuestionActivity" />
         <activity android:name=".screen.info.InfoActivity" />
         <activity android:name=".screen.history.HistoryActivity" />

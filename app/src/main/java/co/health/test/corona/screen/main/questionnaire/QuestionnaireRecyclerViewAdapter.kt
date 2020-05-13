@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment.OnListFragmentInteractionListener
+import kotlinx.android.synthetic.main.fragment_learn.view.*
 import kotlinx.android.synthetic.main.row_questionnnaire.view.*
 
 
@@ -29,7 +30,7 @@ class QuestionnaireRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.row_questionnnaire, parent, false)
+            .inflate(R.layout.fragment_learn, parent, false)
         return ViewHolder(view)
     }
 
@@ -53,9 +54,9 @@ class QuestionnaireRecyclerViewAdapter(
 
     inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
 
-        val mImg: ImageView = mView.img
-        val mContentView: TextView = mView.tv
-        val mPoint: TextView = mView.tv_res
+        val mImg: ImageView = mView.iv
+        val mContentView: TextView = mView.tv_desc
+        val mPoint: TextView = mView.tv_date
 
         override fun toString(): String {
             return super.toString() + " '" + mContentView.text + "'"

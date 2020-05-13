@@ -4,14 +4,14 @@ import androidx.room.*
 
 @Entity(tableName = "users")
 data class Users(
-    @Embedded val detail: Detail,
+    @Embedded var detail: Detail,
     val history: String,
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "users_id")
     val id: Long = 0
 )
 
-data class Detail(val fname: String?, val lname: String?, val gender: String?)
+data class Detail(val fname: String, val lname: String,val phone:String, val gender: String?,var properties:String?)
 
 
 

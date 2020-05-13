@@ -1,5 +1,8 @@
 package co.health.test.corona.screen.utils
 
+import android.content.Context
+import android.util.TypedValue
+
 
 private val farsiChars = arrayOf(
     "\u06F0",
@@ -52,4 +55,13 @@ fun String.toFarsi(): String {//1232452
 
     return number
 
+}
+
+fun Context.dpToPx(dp: Float): Float {
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.displayMetrics)
+}
+
+
+fun Context.spToPx(dp: Float): Float {
+    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dp, resources.displayMetrics)
 }

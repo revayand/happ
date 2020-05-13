@@ -16,10 +16,11 @@ import co.health.test.corona.screen.main.home.learn.LearnFragment
 import co.health.test.corona.screen.main.other.OtherFragment
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment
 import co.health.test.corona.screen.main.settings.UserItemFragment
+import co.health.test.corona.screen.profile.ProfileActivity
 import co.health.test.corona.screen.test.TestActivity
 import co.health.test.corona.screen.utils.BaseActivity
+import co.health.test.corona.screen.utils.startActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
@@ -45,20 +46,15 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         sharedPreferences.getLong("id", -1).let {
             if (it == -1L)
                 return
-            usersManager.getUsers(it).subscribeWith(object : DisposableObserver<Users>() {
-                override fun onComplete() {
-
-
-                }
-
-                override fun onNext(t: Users) {
-
-                    renameTitle(t.detail.fname + " " + t.detail.lname)
-
-                }
+            usersManager.getUsers(it).subscribeWith(object : DisposableSingleObserver<Users>() {
 
                 override fun onError(e: Throwable) {
 
+                }
+
+                override fun onSuccess(t: Users) {
+
+                    renameTitle(t.detail.fname + " " + t.detail.lname)
                 }
             })
         }
@@ -103,10 +99,7 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
     }
 
     override fun onUserListFragmentInteraction(item: Users) {
-        sharedPreferences.edit(true) {
-            this.putLong("id", item.id)
-            renameTitle(item.detail.fname + " " + item.detail.lname)
-        }
+        startActivity(ProfileActivity::class.java)
     }
 
     override fun onLongUserListFragmentInteraction(item: Users) {
@@ -142,5 +135,12 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         val face = Typeface.createFromAsset(assets, "fonts/IRANSansMobile.ttf")
         alertDialog.findViewById<TextView>(android.R.id.message)?.typeface = face
 
+    }
+
+    override fun onChangeUser(item: Users) {
+        sharedPreferences.edit(true) {
+            this.putLong("id", item.id)
+            renameTitle(item.detail.fname + " " + item.detail.lname)
+        }
     }
 }
