@@ -26,7 +26,7 @@ class ResultActivity : AppCompatActivity() {
 
         val result = intent.getIntExtra("res", -1)
         val sum = intent.getIntExtra("sum", -1)
-        tv_point.text = (100.0*result/(sum*1.0)).toString().toFarsi()
+        tv_point.text = (100.0*result/(sum*1.0)).toInt().toString().toFarsi()
 
         val params:LinearLayout.LayoutParams = filler.layoutParams as LinearLayout.LayoutParams
         params.weight = (100.0*result/(sum*1.0)).toFloat()

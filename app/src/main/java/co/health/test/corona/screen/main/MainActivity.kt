@@ -12,6 +12,7 @@ import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.repository.db.entities.Users
 import co.health.test.corona.repository.manager.questionnaire.UsersManager
+import co.health.test.corona.screen.daily.DailyDialog
 import co.health.test.corona.screen.main.home.learn.LearnFragment
 import co.health.test.corona.screen.main.other.OtherFragment
 import co.health.test.corona.screen.main.questionnaire.QuestionnaireFragment
@@ -38,7 +39,7 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         setContentView(R.layout.activity_main)
         nav.setOnNavigationItemSelectedListener(this)
         nav.selectedItemId = R.id.navigation_settings
-
+        DailyDialog(this).show()
     }
 
     override fun onResume() {
@@ -99,7 +100,11 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
     }
 
     override fun onUserListFragmentInteraction(item: Users) {
-        startActivity(ProfileActivity::class.java)
+        val intent = Intent(this, ProfileActivity::class.java).apply {
+            putExtra("id", item.id)
+        }
+        startActivity(intent)
+
     }
 
     override fun onLongUserListFragmentInteraction(item: Users) {

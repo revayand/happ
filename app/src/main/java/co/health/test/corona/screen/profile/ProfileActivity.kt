@@ -42,7 +42,7 @@ class ProfileActivity : BaseActivity() {
     private fun fillData() {
 
         tv.text = "نتیجه پرسشنامه های شما"
-        userManager.getAnswerByUser(sharedPreferences.getLong("id", -1)).zipWith(
+        userManager.getAnswerByUser(intent.getLongExtra("id",-1)).zipWith(
             questionnaireManager.getAllQuestionnaire(),
             BiFunction { a: UsersWithAnswers, b: List<Questionnaire> ->
                 Pair(a, b)
