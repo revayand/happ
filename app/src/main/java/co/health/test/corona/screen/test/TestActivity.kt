@@ -90,7 +90,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun display(question: Question, index: Int, view: View): View {
-        view.tv_question.text = "${index + 1}. ${question.question}"
+        view.tv_question.text = "${index + 1}. ${question.question.trim()}"
 //        tv_current_q.text = (index + 1).toString().toFarsi()
         view.v_answer.removeAllViews()
         when (question.answer.type) {

@@ -31,7 +31,7 @@ class InfoActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             usersManager.addUsers(
-                Users(
+                Users(0,
                     Detail(
                         et_fname.text.toString(),
                         et_lname.text.toString(), et_phone.text.toString(),

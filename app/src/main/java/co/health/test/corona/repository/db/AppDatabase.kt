@@ -6,20 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
-import co.health.test.corona.repository.db.daos.AnswerDao
-import co.health.test.corona.repository.db.daos.QuestionDao
-import co.health.test.corona.repository.db.daos.QuestionnaireDao
-import co.health.test.corona.repository.db.daos.UsersDao
+import co.health.test.corona.repository.db.daos.*
 import co.health.test.corona.repository.db.entities.*
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.observers.DisposableSingleObserver
 import java.util.*
 import java.util.concurrent.Executors
+import kotlin.collections.ArrayList
 
 
 @TypeConverters(Converters::class)
 @Database(
-    entities = [Questionnaire::class, Question::class, Users::class, Answerr::class],
+    entities = [Questionnaire::class, Question::class, Users::class, Answerr::class,Behavior::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -28,6 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun questionnaireDao(): QuestionnaireDao
     abstract fun usersDao(): UsersDao
     abstract fun answerDao(): AnswerDao
+    abstract fun behaviorDao(): BehaviorDao
 
     companion object {
 
@@ -253,7 +252,7 @@ abstract class AppDatabase : RoomDatabase() {
                             )
                         )
                         appDatabase.questionDao().insert(vasvalql)
-                            .subscribeWith( object : DisposableSingleObserver<List<Long>>() {
+                            .subscribeWith(object : DisposableSingleObserver<List<Long>>() {
                                 override fun onSuccess(t: List<Long>) {
 
 
@@ -1022,6 +1021,1178 @@ abstract class AppDatabase : RoomDatabase() {
 
                     }
                 })
+
+
+            val nazmTestq = Questionnaire("تست نظم جویی شناخت هیجان", QuestionnaireState.FILLED)
+            appDatabase.questionnaireDao().insert(nazmTestq).subscribe { t ->
+
+                val nazmql: MutableList<Question> = ArrayList()
+
+
+                nazmql.add(
+                    Question(
+                        " احساس می کنم که من برای آنچه که اتفاق افتاده است، مسئولم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  فکر می کنم مسبب اتفاق های  پیش آمده خودم هستم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  فکر می کنم من مجبورم که این اتفاق را بپذیرم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  فکر می کنم من مجبورم که این  موقعیت را بپذیرم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من اغلب  در مورد احساسی که نسبت به این تجربه دارم، فکر میکنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  این مساله که من در مورد تجربه کسب کرده چه احساس و فکری دارم، ذهن من را به خود مشغول کرده است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  به چیزهای خوشایندی فکر میکنم که ربطی به این اتفاق ندارند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من به جای این اتفاق به چیزهای خوب میاندیشم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من در مورد اینکه چگونه این موقعیت را تغییر دهم، فکر می کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  برای بهترین کار ممکن برنامه ریزی میکنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من فکر می کنم می توانم از این موقعیت چیزی را یاد بگیرم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من فکر می کنم در نتیجه چیزی که برای من  اتفاق افتاده است، قوی تر خواهم شد."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  فکر میکنم چیزی را که من تجربه کردهام در مقایسه با چیزهای دیگر خیلی بد نبوده است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من به خودم میگویم که در زندگی چیزهای بدتری هم وجود دارد."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من به فکر کردن در مورد وحشتناک بودن تجربهام ادامه میدهم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من عمیقاً به  وحشتناک بودن این موقعیت فکر می کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من احساس می کنم که دیگران برای انچه که اتفاق می افتد، مسئولند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        ), t
+                    )
+                )
+
+                nazmql.add(
+                    Question(
+                        "  من احساس می کنم که علت اصلی این مشکل دیگران هستند."
+                        ,
+                        Answer(
+                            null, AnswerType.RADIO, listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                        )
+                        , t
+                    )
+                )
+
+                appDatabase.questionDao().insert(nazmql).subscribe { _ -> }
+
+            }
+
+
+            val socialTestq = Questionnaire("تست حل مسئله اجتماعی", QuestionnaireState.FILLED)
+            appDatabase.questionnaireDao().insert(socialTestq).subscribe { t ->
+
+                val socialql: MutableList<Question> = ArrayList()
+
+                socialql.add(
+                    Question(
+                        "به راه حل های مختلف فکر می کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "اگر تلاش اولم برای حل مسئله با شکست مواجه شود، مایوس می شوم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "ارزیابی می کنم که بعد از تغییر شرایط، چه روحیه ای خواهم داشت "
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "ارزیابی می کنم که آیا تا به حال وضعیت بهتر شده است، یا نه"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "نتایج هر انتخاب را سبک سنگین و مقایسه می کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "برای مقایسه انتخاب ها روش منظمی را به کار می برم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "زمانی که با مسئله ای مواجه می شوم، احساس ترس می کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "برای ارزیابی دقیق نتایج کارم، وقت صرف نمی کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "یک مسئله سخت مرا آشفته می سازد"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "حل مسائل را تا جایی به تعویق می اندازم که دیر نشود"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "بیشتر وقتم را به اجتناب از حل مسائل می گذرانم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "به اعتقاد من هر مسئله ای قابل حل است"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "برای اجتناب از مواجهه با مسائل، از مسیر خود منحرف می شوم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "از تفکر درباره مسائل اجتناب می کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "زمانی را برای توجه به اظهار نظرهای موافقان یا مخالفان صرف نمی کنم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                socialql.add(
+                    Question(
+                        "بدون تفکر با احساس درونی خود درگیر می شوم"
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("به هیچ وجه", "تا حدودی", "متوسط", "زیاد", "خیلی زیاد")
+                        )
+                        ,
+                        t
+                    )
+                )
+
+                appDatabase.questionDao().insert(socialql).subscribe { _ -> }
+
+            }
+
+
+            val marriageTestq = Questionnaire("تست تعارضات زناشویی", QuestionnaireState.FILLED)
+            appDatabase.questionnaireDao().insert(marriageTestq).subscribe { t ->
+                val marriageql: MutableList<Question> = ArrayList()
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعوا با همسرم، رابطه من با خانواده پدر و مادري او قطع می¬شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    من و همسرم حساب¬هاي مالی جداگانه داریم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    حرف هاي من و همسرم بدون کنایه و بی¬پرده گفته می¬شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم هرکاري از من بخواهد فراموش می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دلخوري من و همسرم، هیچ¬کدام براي رابطه جنسی پیش قدم نمی¬شویم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    من و همسرم کتک کاري می¬کنیم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم با اظهار¬نظرهاي خود مرا تحقیر می¬کند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دلخوري، رابطه من با خانواده پدرو مادري خودم قطع می¬شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    براي جلب فرزند (یا فرزندانم) حاضرم انتظارات نامعقول او(یا آنان) را برآورده کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    بدون اطلاع همسرم، براي خود پس¬انداز شخصی دارم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هیچ¬وقت احساس بدي را که نسبت به او دارم به او نمی¬گویم، چون می¬ترسم عصبانی شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    وقتی همسرم از من تقاضایی دارد، خودم را به کارهاي دیگر مشغول می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    رابطه جنسی من با همسرم ارضا¬کننده نیست."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    وقتی با همسرم دعوا می¬کنم، اتاق یا خانه را براي مدتی ترك می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    به تنهایی با خانواده پدر و مادري خود و خواهر و برادرانم رابطه دارم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگامی که مشکل داریم، غالبا همسرم در جواب من سکوت اختیار می¬کند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    درآمد همسرم را به بهانه¬هاي مختلف صرف خواسته¬هاي شخصی خود می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم را با ناقص انجام دادن کارهایی که از من می خواهد تنبیه می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم رابطه جنسی را به من تحمیل می¬کند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم را به رفتارهاي غیر¬اخلاقی متهم می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    از اعضاي خانواده پدري و مادري¬ام، براي حل اختلافات خود با همسرم، کمک می¬گیرم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    فرزند (یا فرزندانم)، اسرار همسرم را به من می¬گویند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    خانواده پدر و مادري همسرم، به من بی¬احترامی می¬کنند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    خرج خانواده، در هرصورت (آشتی یا دعوا) در اختیار من است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم را با بی¬نظمی و نامرتب بودن، آزار می¬دهم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    من و همسرم بدون واسطه و مستقیم با هم صحبت می¬کنیم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    وقتی با همسرم دعوا می¬کنم، فریاد می¬زنم و ناسزا می¬گویم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    آرزو دارم همسرم احساساتش را با من در میان بگذارد."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    خانواده پدر و مادري من، همسرم را با دیگران مقایسه و به حال من دلسوزي می¬کنند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    از نحوه گفتگو با همسرم بسیار راضی هستم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    فرزند یا فرزندانم یکی از عوامل مهم حفظ و تداوم رابطه زناشویی من هستند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    دوست یا دوستانم در جریان اختلاف من و همسرم هستند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    من و همسرم با مشارکت و توافق یکدیگر پول و درآمد خانواده را خرج می-کنیم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    حوصله¬ام از همسرم و خواسته¬هایش سر می¬رود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعوا، تنها رابطه من با همسرم رابطه جنسی است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام نزاع، از همسرم درخواست طلاق می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    خانواده پدري و مادري من، تمام گناه¬ها را به گردن همسرم می¬اندازند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعوا بین من و همسرم، فرزند یا فرزندانم از من حمایت می¬کنند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    حاضر نیستم براي بدهی هاي همسرم از دیگران پول قرض کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعوا، رابطه جنسی من و همسرم قطع می شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    می¬ترسم خواسته¬هاي خود را با همسرم مطرح کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    با وجود داشتن همسر، از تنهایی رنج می برم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم را در حضور خانواده پدري و مادري خودم، تحقیر می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعواي من و همسرم، یکی از فرزندانم زیاد مریض می¬شود و نیاز به مراقبت دارد."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم شنونده خوبی است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    همسرم و خانواده¬اش را در مقابل سایرین تحقیر می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    در ابراز هرگونه احساس واقعی خود براي همسرم، راحتم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    بدون اطلاع همسرم، به والدین خود پول می¬دهم و یا از آن¬ها پول می¬گیرم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    دعوا با همسرم، مرا نسبت به فعالیت¬هاي خودم بی¬علاقه می¬کند."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    با آن دسته از برنامه¬هاي مهمانی که با حضور خانواده همسرم باشد، مخالفت می¬کنم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    هنگام دعوا با همسرم نسبت به غذا بی¬اشتها می¬شوم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    باورکردن تمام حرف¬هاي همسرم، برایم دشوار است."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    در هنگام دعوا با همسرم، رابطه من و او با دوستان مشترکمان قطع می¬شود."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+                marriageql.add(
+                    Question(
+                        "    من و همسرم با یکدیگر روراست و بی¬پرده هستیم."
+                        ,
+                        Answer(
+                            null,
+                            AnswerType.RADIO,
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                        ),
+                        t
+                    )
+                )
+
+
+                appDatabase.questionDao().insert(marriageql).subscribe { _ -> }
+
+            }
 
         }
     }

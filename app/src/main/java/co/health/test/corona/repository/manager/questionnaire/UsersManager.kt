@@ -3,6 +3,7 @@ package co.health.test.corona.repository.manager.questionnaire
 import co.health.test.corona.repository.db.daos.UsersDao
 import co.health.test.corona.repository.db.entities.Users
 import co.health.test.corona.repository.db.entities.UsersWithAnswers
+import co.health.test.corona.repository.db.entities.UsersWithBehaviors
 import io.reactivex.Observable
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -44,6 +45,12 @@ class UsersManager(private val usersDao: UsersDao) {
 
     fun getAnswerByUser(id: Long): Observable<UsersWithAnswers> {
         return usersDao.getAnswersByUserId(id).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+    }
+
+
+    fun getBehaviorByUser(id: Long): Observable<UsersWithBehaviors> {
+        return usersDao.getBehaviorByUserId(id).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
     }
 

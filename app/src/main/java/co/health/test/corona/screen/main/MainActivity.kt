@@ -11,6 +11,7 @@ import androidx.core.content.edit
 import co.health.test.corona.R
 import co.health.test.corona.repository.db.entities.QuestionnaireWithQuestions
 import co.health.test.corona.repository.db.entities.Users
+import co.health.test.corona.repository.manager.questionnaire.BehaviorManager
 import co.health.test.corona.repository.manager.questionnaire.UsersManager
 import co.health.test.corona.screen.daily.DailyDialog
 import co.health.test.corona.screen.main.home.learn.LearnFragment
@@ -20,11 +21,11 @@ import co.health.test.corona.screen.main.settings.UserItemFragment
 import co.health.test.corona.screen.profile.ProfileActivity
 import co.health.test.corona.screen.test.TestActivity
 import co.health.test.corona.screen.utils.BaseActivity
-import co.health.test.corona.screen.utils.startActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import io.reactivex.observers.DisposableSingleObserver
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
+import java.util.*
 
 
 class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, BaseActivity(),
@@ -33,13 +34,13 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
 
     val sharedPreferences: SharedPreferences by inject()
     val usersManager: UsersManager by inject()
+    val behaviorManager: BehaviorManager by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         nav.setOnNavigationItemSelectedListener(this)
         nav.selectedItemId = R.id.navigation_settings
-        DailyDialog(this).show()
     }
 
     override fun onResume() {
@@ -47,6 +48,8 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         sharedPreferences.getLong("id", -1).let {
             if (it == -1L)
                 return
+
+
             usersManager.getUsers(it).subscribeWith(object : DisposableSingleObserver<Users>() {
 
                 override fun onError(e: Throwable) {
@@ -56,6 +59,17 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
                 override fun onSuccess(t: Users) {
 
                     renameTitle(t.detail.fname + " " + t.detail.lname)
+
+                    val userCal = Calendar.getInstance()
+                    userCal.time = Date(t.lastBehaviorTime)
+
+                    val currentCal = Calendar.getInstance()
+                    currentCal.time = Date()
+
+                    if (currentCal.get(Calendar.DAY_OF_MONTH) != userCal.get(Calendar.DAY_OF_MONTH)) {
+                        DailyDialog(this@MainActivity, behaviorManager, usersManager, t).show()
+
+                    }
                 }
             })
         }

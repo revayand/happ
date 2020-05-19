@@ -4,6 +4,7 @@ import androidx.room.*
 
 @Entity(tableName = "users")
 data class Users(
+    var lastBehaviorTime:Long = 0,
     @Embedded var detail: Detail,
     val history: String,
     @PrimaryKey(autoGenerate = true)
@@ -14,6 +15,12 @@ data class Users(
 data class Detail(val fname: String, val lname: String,val phone:String, val gender: String?,var properties:String?)
 
 
+
+data class UsersWithBehaviors(
+    @Embedded val users: Users,
+    @Relation(parentColumn = "users_id", entityColumn = "parent_users_id")
+    val behaviors: List<Behavior>
+)
 
 data class UsersWithAnswers(
     @Embedded val users: Users,

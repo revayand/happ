@@ -3,6 +3,7 @@ package co.health.test.corona.repository.db.daos
 import androidx.room.*
 import co.health.test.corona.repository.db.entities.Users
 import co.health.test.corona.repository.db.entities.UsersWithAnswers
+import co.health.test.corona.repository.db.entities.UsersWithBehaviors
 import io.reactivex.Observable
 import io.reactivex.Single
 
@@ -41,5 +42,9 @@ interface UsersDao {
     @Transaction
     @Query("select * FROM users WHERE users_id=:id")
     fun getAnswersByUserId(id: Long): Observable<UsersWithAnswers>
+
+    @Transaction
+    @Query("select * FROM users WHERE users_id=:id")
+    fun getBehaviorByUserId(id: Long): Observable<UsersWithBehaviors>
 
 }
