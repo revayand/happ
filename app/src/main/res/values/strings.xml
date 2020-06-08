@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">تست</string>
+    <string name="app_name">پایش سلامت شناختی</string>
 
     <string-array name="ages">
         <item>15-25</item>
