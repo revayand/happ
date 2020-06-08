@@ -12,6 +12,7 @@ import co.health.test.corona.repository.db.entities.Users
 import co.health.test.corona.repository.db.entities.UsersWithAnswers
 import co.health.test.corona.repository.manager.questionnaire.QuestionnaireManager
 import co.health.test.corona.repository.manager.questionnaire.UsersManager
+import co.health.test.corona.screen.result.ResultActivity
 import co.health.test.corona.screen.utils.BaseActivity
 import io.reactivex.functions.BiFunction
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -42,16 +43,21 @@ class ProfileActivity : BaseActivity() {
     private fun fillData() {
 
         tv.text = "نتیجه پرسشنامه های شما"
-        userManager.getAnswerByUser(intent.getLongExtra("id",-1)).zipWith(
+        userManager.getAnswerByUser(intent.getLongExtra("id", -1)).zipWith(
             questionnaireManager.getAllQuestionnaire(),
             BiFunction { a: UsersWithAnswers, b: List<Questionnaire> ->
                 Pair(a, b)
             }).subscribe {
             user = it.first.users
             questionnaires = it.second.toMutableList()
-            val answers = it.first.answers
+            val answers = it.first.answers.filter { ii -> ii.part == null }
             tv_name.text = "${user.detail.fname} ${user.detail.lname}"
             tv_phone.text = user.detail.phone
+
+            img.setImageResource(R.drawable.male)
+            if (user.detail.gender=="زن")
+                img.setImageResource(R.drawable.female)
+
             answers.forEach { ans ->
                 val q = questionnaires.findLast { qq -> qq.id == ans.questionnaireId }
 
@@ -60,6 +66,12 @@ class ProfileActivity : BaseActivity() {
                     LayoutInflater.from(this)
                         .inflate(R.layout.row_questionnaire_small_share, list, false)
                 row.tv_desc.text = q?.title
+                row.setOnClickListener {
+                    Intent(this, ResultActivity::class.java).also { ii ->
+                        ii.putExtra("questionnaireId", q?.id)
+                        startActivity(ii)
+                    }
+                }
                 row.btn_share.setOnClickListener {
 
                     val shareBody = "نتیجه ${q?.title} شما ${ans.desc}"

@@ -6,6 +6,7 @@ import androidx.room.*
 data class Answerr(
     val point: Int?,
     val desc:String?,
+    val part:String?,
     @ColumnInfo(name = "parent_users_id") val usersId: Long,
     @ColumnInfo(name = "parent_questionnaire_id") val questionnaireId: Long,
     @PrimaryKey(autoGenerate = true)

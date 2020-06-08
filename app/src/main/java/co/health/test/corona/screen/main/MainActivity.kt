@@ -40,8 +40,20 @@ class MainActivity : QuestionnaireFragment.OnListFragmentInteractionListener, Ba
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         nav.setOnNavigationItemSelectedListener(this)
-        nav.selectedItemId = R.id.navigation_settings
+        nav.selectedItemId = when {
+            intent.getBooleanExtra("gotoLearn", false) -> {
+                R.id.navigation_home
+            }
+            intent.getBooleanExtra("gotoQuestionnaire", false) -> {
+                R.id.navigation_question
+            }
+            else -> {
+                R.id.navigation_settings
+            }
+        }
+
     }
+
 
     override fun onResume() {
         super.onResume()

@@ -47,6 +47,7 @@
                 android:gravity="center"
                 android:textSize="15sp"
                 android:padding="10dp"
+                android:id="@+id/tv_desc"
                 android:text="توضیحات این پرسشنامه"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>

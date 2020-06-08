@@ -60,7 +60,7 @@ object DummyContent {
     /**
      * A dummy item representing a piece of content.
      */
-    data class DummyItem(val id: String, val content: String, val date: String,val srcImage:String,val href:String) {
+    data class DummyItem(val id: String, val content: String, val date: String,val srcImage:String,val href:String,val internal:Boolean =false) {
         override fun toString(): String = content
     }
 }

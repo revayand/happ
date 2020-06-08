@@ -40,7 +40,7 @@ class QuestionnaireFragment : Fragment() {
     val questionnaireManager: QuestionnaireManager by inject()
 
     private var questionnaires: MutableList<Questionnaire> = ArrayList()
-    private lateinit var adapter: QuestionnaireRecyclerViewAdapter
+//    private lateinit var adapter: QuestionnaireRecyclerViewAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +55,7 @@ class QuestionnaireFragment : Fragment() {
                 return@Observer
             questionnaires.clear()
             questionnaires.addAll(it)
-            adapter.notifyDataSetChanged()
+//            adapter.notifyDataSetChanged()
         })
 
         questionnaireViewModel.state.observe(this, Observer {
@@ -98,7 +98,7 @@ class QuestionnaireFragment : Fragment() {
 
                 override fun onNext(t: Pair<UsersWithAnswers, List<Questionnaire>>) {
                     user = t.first.users
-                    answers = t.first.answers
+                    answers = t.first.answers.filter { it.part == null }
                     questionnaires = t.second.toMutableList()
                     showData()
                 }
@@ -114,6 +114,12 @@ class QuestionnaireFragment : Fragment() {
         val questionnaireOlaviat: MutableList<Questionnaire> = ArrayList()
         if (user.detail.properties?.contains("ezterab") == true) {
             questionnaires.find { it.title == "تست اضطراب" }?.let {
+                questionnaireOlaviat.add(it)
+                questionnaires.remove(it)
+            }
+        }
+        if (user.detail.properties?.contains("khodkoshi") == true) {
+            questionnaires.find { it.title == "تست مکمل افسردگی" }?.let {
                 questionnaireOlaviat.add(it)
                 questionnaires.remove(it)
             }
@@ -156,18 +162,7 @@ class QuestionnaireFragment : Fragment() {
                     row.tv_date.setTextColor(ContextCompat.getColor(activity!!, R.color.green))
                     row.setOnClickListener(null)
                 }
-
-                when (q.title) {
-                    "تست وسواس" -> {
-                        row.iv.setImageResource(R.drawable.vasvas)
-                    }
-                    "تست اضطراب" -> {
-                        row.iv.setImageResource(R.drawable.ezterab)
-                    }
-                    else -> {
-                        row.iv.setImageResource(R.drawable.afsordegi)
-                    }
-                }
+                row.iv.setImageResource(q.img)
 
                 list.addView(row)
 
@@ -181,7 +176,7 @@ class QuestionnaireFragment : Fragment() {
             val header = LayoutInflater.from(activity).inflate(R.layout.row_divider, list, false)
             header.tv.text = "پرسشنامه های مکمل"
             list.addView(header)
-            questionnaires.forEach { q ->
+            questionnaires.filter { it.title!= "تست مکمل افسردگی" }.forEach { q ->
                 val row =
                     LayoutInflater.from(activity)
                         .inflate(R.layout.row_questionnaire_small, list, false)
@@ -202,17 +197,8 @@ class QuestionnaireFragment : Fragment() {
                     row.setOnClickListener(null)
                 }
 
-                when (q.title) {
-                    "تست وسواس" -> {
-                        row.iv.setImageResource(R.drawable.vasvas)
-                    }
-                    "تست اضطراب" -> {
-                        row.iv.setImageResource(R.drawable.ezterab)
-                    }
-                    else -> {
-                        row.iv.setImageResource(R.drawable.afsordegi)
-                    }
-                }
+                row.iv.setImageResource(q.img)
+
                 list.addView(row)
             }
         }
@@ -222,7 +208,7 @@ class QuestionnaireFragment : Fragment() {
         super.onAttach(context)
         if (context is OnListFragmentInteractionListener) {
             listener = context
-            adapter = QuestionnaireRecyclerViewAdapter(DummyContentQuestionnaire.ITEMS, listener)
+//            adapter = QuestionnaireRecyclerViewAdapter(DummyContentQuestionnaire.ITEMS, listener)
         } else {
             throw RuntimeException("$context must implement OnListFragmentInteractionListener")
         }

@@ -52,6 +52,7 @@ class HistoryActivity : AppCompatActivity() {
                                         Intent(this@HistoryActivity, MainActivity::class.java)
 
                                     gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                    gotoScreenVar.putExtra("gotoQuestionnaire",true)
 
                                     startActivity(gotoScreenVar)
 

@@ -2,6 +2,7 @@ package co.health.test.corona.screen.info
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import co.health.test.corona.R
@@ -26,16 +27,19 @@ class InfoActivity : AppCompatActivity() {
                 showSnack("لطفا اطلاعات ضروری را تکمیل کنید.")
                 return@setOnClickListener
             }
-            if(!et_phone.text.startsWith("09") || et_phone.text.length != 11){
+            if (!et_phone.text.startsWith("09") || et_phone.text.length != 11) {
                 showSnack("شماره تلفن را به شکل صحیح وارد کنید.")
                 return@setOnClickListener
             }
+            var gen = findViewById<RadioButton>(rgg.checkedRadioButtonId).text
+
             usersManager.addUsers(
-                Users(0,
+                Users(
+                    0,
                     Detail(
                         et_fname.text.toString(),
                         et_lname.text.toString(), et_phone.text.toString(),
-                        null, null
+                        gen as String?, null
                     ), "", 0
                 )
             ).subscribeWith(object : DisposableSingleObserver<Long>() {

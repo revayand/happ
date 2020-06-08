@@ -26,6 +26,14 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/male"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
@@ -34,7 +42,7 @@
         android:text="میلاد حیدری"
         android:textColor="@color/black"
         android:textSize="15sp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/img"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <TextView
@@ -45,7 +53,7 @@
         android:text="09126151886"
         android:textColor="#777"
         android:textSize="15sp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/img"
         app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
     <include

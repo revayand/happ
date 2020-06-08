@@ -54,7 +54,7 @@ class MyLearnRecyclerViewAdapter(
         holder.mDesc.text = item.content
         holder.mDate.text = item.date
         Glide.with(holder.mView.context).load(item.srcImage).centerCrop()
-
+            .error(R.drawable.light)
             .into(holder.img)
         with(holder.mView) {
             tag = item

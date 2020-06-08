@@ -230,16 +230,19 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
+                    android:id="@+id/rgg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/man"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="مرد" />
 
                     <RadioButton
+                        android:id="@+id/women"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="زن" />

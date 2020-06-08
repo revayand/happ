@@ -6,18 +6,18 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
+import co.health.test.corona.R
 import co.health.test.corona.repository.db.daos.*
 import co.health.test.corona.repository.db.entities.*
-import io.reactivex.observers.DisposableObserver
+import co.health.test.corona.screen.utils.Constants
 import io.reactivex.observers.DisposableSingleObserver
-import java.util.*
 import java.util.concurrent.Executors
 import kotlin.collections.ArrayList
 
 
 @TypeConverters(Converters::class)
 @Database(
-    entities = [Questionnaire::class, Question::class, Users::class, Answerr::class,Behavior::class],
+    entities = [Questionnaire::class, Question::class, Users::class, Answerr::class, Behavior::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -59,7 +59,9 @@ abstract class AppDatabase : RoomDatabase() {
         private fun saveData(appDatabase: AppDatabase) {
 
 
-            val vasvasTestq = Questionnaire("تست وسواس", QuestionnaireState.FILLED)
+            val vasvasTestq =
+                Questionnaire(143.29, 54.08,
+                   null, R.drawable.vasvas, 0,null, null, "تست وسواس", QuestionnaireState.FILLED)
             appDatabase.questionnaireDao().insert(vasvasTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
                     override fun onSuccess(t: Long) {
@@ -273,7 +275,8 @@ abstract class AppDatabase : RoomDatabase() {
                 })
 
 
-            val afsordegiTestq = Questionnaire("تست افسردگی", QuestionnaireState.FILLED)
+            val afsordegiTestq =
+                Questionnaire(19.4, 11.89,null,R.drawable.afsordegi,0, null, null, "تست افسردگی", QuestionnaireState.FILLED)
 
             appDatabase.questionnaireDao().insert(afsordegiTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
@@ -639,7 +642,8 @@ abstract class AppDatabase : RoomDatabase() {
                 })
 
 
-            val ezterabTestq = Questionnaire("تست اضطراب", QuestionnaireState.FILLED)
+            val ezterabTestq =
+                Questionnaire(23.33, 7.89,null,R.drawable.ezterab,0, null, null, "تست اضطراب", QuestionnaireState.FILLED)
             appDatabase.questionnaireDao().insert(ezterabTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
                     override fun onSuccess(t: Long) {
@@ -1023,7 +1027,12 @@ abstract class AppDatabase : RoomDatabase() {
                 })
 
 
-            val nazmTestq = Questionnaire("تست نظم جویی شناخت هیجان", QuestionnaireState.FILLED)
+            val nazmTestq = Questionnaire(
+                0.0, 1.0,Constants.guideNazm,R.drawable.nazm,1,
+                "ملامت خویش-پذیرش-تمرکز روی افکار-تمرکز مجدد مثبت-تمرکز مجدد بر برنامه ریزی-ارزیابی مجدد مثبت-دیدگاه گیری-فاجعه سازی-ملامت دیگران" +
+                        "=1-2,3-4,5-6,7-8,9-10,11-12,13-14,15-16,17-18"
+                , null, "تست نظم جویی شناخت هیجان", QuestionnaireState.FILLED
+            )
             appDatabase.questionnaireDao().insert(nazmTestq).subscribe { t ->
 
                 val nazmql: MutableList<Question> = ArrayList()
@@ -1248,8 +1257,15 @@ abstract class AppDatabase : RoomDatabase() {
 
             }
 
-
-            val socialTestq = Questionnaire("تست حل مسئله اجتماعی", QuestionnaireState.FILLED)
+            val socialTestq = Questionnaire(
+                0.0,
+                1.0,Constants.guideMasaleEjtemai,R.drawable.ejtemai,1,
+                "سبک منطقی حل مسئله-سبک اجتنابی حل مسئله-سبک تکانشی حل مسئله" +
+                        "=1-2-3-4-5-6,7-8-9-10-11,12-13-14-15-16",
+                null,
+                "تست حل مسئله اجتماعی",
+                QuestionnaireState.FILLED
+            )
             appDatabase.questionnaireDao().insert(socialTestq).subscribe { t ->
 
                 val socialql: MutableList<Question> = ArrayList()
@@ -1482,8 +1498,15 @@ abstract class AppDatabase : RoomDatabase() {
 
             }
 
-
-            val marriageTestq = Questionnaire("تست تعارضات زناشویی", QuestionnaireState.FILLED)
+            val marriageTestq = Questionnaire(
+                0.0,
+                1.0,null,R.drawable.zanashoi,1,
+                "ﮐﺎﻫﺶ ﻫﻤﮑﺎري-ﮐﺎﻫﺶ راﺑﻄﻪ ﺟﻨﺴﯽ-اﻓﺰاﯾﺶ واﮐﻨﺶ ﻫﺎي ﻫﯿﺠﺎﻧﯽ-اﻓﺰاﯾﺶ ﺟﻠﺐ ﺣﻤﺎﯾﺖ ﻓﺮزﻧﺪان-اﻓﺰاﯾﺶ راﺑﻄﻪ ﻓﺮدي ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﺧﻮد-ﮐﺎﻫﺶ راﺑﻄﻪ ﺧﺎﻧﻮادﮔﯽ ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﻫﻤﺴﺮ و دوﺳﺘﺎن-ﺟﺪا ﮐﺮدن اﻣﻮر ﻣﺎﻟﯽ از ﯾﮑﺪﯾﮕﺮ-ﮐﺎﻫﺶ ارﺗﺒﺎط ﻣﻮﺛﺮ" +
+                        "=4-12-18-25-34,5-13-19-35-40,6-14-20-27-36-42-49-51,9-22-31-38-44,8-15-21-29-37-43,1-23-32-46-50-53,2-10-17-24-33-39-48,3-7-11-16-26-28-30-41-45-47-52-54",
+                null,
+                "تست تعارضات زناشویی",
+                QuestionnaireState.FILLED
+            )
             appDatabase.questionnaireDao().insert(marriageTestq).subscribe { t ->
                 val marriageql: MutableList<Question> = ArrayList()
 
@@ -1520,7 +1543,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1819,7 +1842,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1871,7 +1894,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1910,7 +1933,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2066,7 +2089,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2092,7 +2115,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2183,7 +2206,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2192,6 +2215,213 @@ abstract class AppDatabase : RoomDatabase() {
 
                 appDatabase.questionDao().insert(marriageql).subscribe { _ -> }
 
+            }
+
+
+            val killTestq = Questionnaire(
+                0.0, 1.0,null,R.drawable.afsordegi,0,
+                "آمادگی جهت خودکشی-قصد اقدام به خودکشی" +
+                        "=1-2-3-4-5-6-7,8-9-10-11-12-13-14"
+                , null, "تست مکمل افسردگی", QuestionnaireState.FILLED
+            )
+            appDatabase.questionnaireDao().insert(killTestq).subscribe { t ->
+                val killql: MutableList<Question> = ArrayList()
+
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "زمان کوتاهی به فکر خودکشی می افتم که به سرعت از ذهنم می گذرد."
+                                , "گاهی کم و بیش به فکر خودکشی می افتم."
+                                , "مدت های طولانی فکر خودکشی را در ذهنم دارم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "بندرت درباره ی خودکشی فکر می کنم."
+                                , "گهگاهی درباره ی خودکشی فکر می کنم."
+                                , "تقریباً همیشه درباره ی خودکشی فکر می کنم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "فکر درباره ی خودکشی را قبول ندارم."
+                                , "فکر درباره ی خودکشی را نه قبول دارم و نه رد می کنم."
+                                , "فکر درباره ی خودکشی را قبول دارم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "اگر قصد خودکشی داشته باشم قادر به کنترل خودم هستم."
+                                , "مطمئن نیستم که بتوانم خودم را از ارتکاب به خودکشی کنترل کنم."
+                                , "اگر قصد خودکشی داشته باشم قادر به کنترل خودم نیستم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "به خاطر خانواده، دوستان، مذهب و مجروحیت ناشی از خودکشی ناموفق قصد خودکشی ندارم."
+                                ,
+                                "به خاطر خانواده، دوستان، مذهب و مجروحیت ناشی از خودکشی ناموفق، نسبت به اقدام خودکشی تا اندازه ای نگران هستم."
+                                ,
+                                "نسبت به اقدام به خودکشی نگران خانواده، دوستان، مذهب و مجروحیت ناشی از خودکشی ناموفق نیستم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "دلیل اصلی من از اقدام به خودکشی تأثیر گذاشتن بر دیگران است به طوری که به من توجه شود."
+                                ,
+                                "منظور من از اقدام به خودکشی فقط تأثیر گذاشتن بر افراد نیست، بلکه راه حلی برای حل مشکلاتم می باشد. "
+                                ,
+                                "منظور اصلی من از اقدام به خودکی فرار کردن از مشکلات است."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "طرح و برنامه خاصی برای اینکه چطور خودکشی کنم ندارم."
+                                , "راه های خودکی را بررسی کرده ام، اما روی جزئیات آن فکر نکرده ام."
+                                , "طرح و برنامه خاصی برای اینکه چطور خودکشی کنم در ذهنم دارم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "به یک روش و یا فرصت مناسبی که خودکشی کنم دسترسی ندارم."
+                                ,
+                                "روشی را که قصد دارم برای خودکشی به کار ببرم وقت زیادی می خواهد و من فرصت بکارگیری این روش را ندارم."
+                                ,
+                                "روشی را برای خودکشی انتخاب کرده ام و برای عملی کردن آن منتظر فرصت مناسب هستم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "جرأت یا توانایی اقدام به خودکشی را ندارم."
+                                , "مطمئن نیستم که جرأت و توانایی ارتکاب به خودکشی را داشته باشم."
+                                , "جرأت یا توانایی اقدام به خودکشی را دارم."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "گمان نمی کنم که قصد خودکشی داشته باشم."
+                                , "مطمئن نیستم که بخواهم خودکشی کنم."
+                                , "مطمئنم که خودکشی خواهم کرد."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "هیچ وسیله ای برای اقدام به خودکشی آماده نکرده ام."
+                                , "اندکی وسایل برای اقدام به خودکی آماده کرده ام."
+                                , "تقریباً برای اقدام به خودکشی وسایل لازم را آماده کرده ام."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "درباره ی خودکشی ام تا کنون مطلبی ننوشته ام."
+                                ,
+                                "درباره یادداشت خودکشی ام فکر کرده و یا شروع به نوشتن آن کرده ام، اما کامل نیست."
+                                ,
+                                "یادداشت خودکشی ام را کامل کرده ام."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "در مورد حوادث و مسایل پس از خودکشی هیچ برنام مشخصی ندارم."
+                                ,
+                                "در مورد حوادث و مسایل پس از خودکشی تا حدودی برنامه ها را مشخص کرده ام."
+                                ,
+                                "در مورد حوادث و مسایل پس از خودکشی بطور دقیق برنامه ریزی کرده ام."
+                            )
+                        ), t
+                    )
+                )
+
+                killql.add(
+                    Question(
+                        "یکی از گزینه های زیر را انتخاب کنید.", Answer(
+                            null, AnswerType.RADIO, listOf(
+
+                                "دیگران از قصد خودکشی من آگاه هستند"
+                                , "در مورد قصد خودکشی خود به دیگران چیزی نگفته ام."
+                                , "دیگران از قصد خودکی من آگاه نیستند."
+                            )
+                        ), t
+                    )
+                )
+
+
+                appDatabase.questionDao().insert(killql).subscribe { _ -> }
             }
 
         }
