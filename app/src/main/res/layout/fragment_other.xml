@@ -3,40 +3,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:noghteh="http://noghteh.ir"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".screen.main.other.OtherFragment">
 
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/fdf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="کلینیک شناختی"
+                android:textColor="@color/red"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/fdf"
+                android:text="روآیند"
+                android:textColor="@color/green"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="70dp"
+                android:src="@drawable/loog" />
+        </RelativeLayout>
+
+        <co.health.test.corona.screen.utils.JustifiedTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="اپلیکییشن آسیب شناسی کرونا"
-
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_gravity="right"
             android:layout_marginTop="20dp"
-            android:text="@string/desc"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:id="@+id/descc"
+            noghteh:text="@string/desc"
+            noghteh:textColor="@color/black"
+            noghteh:textSize="15sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="تماس با ما: 02112345678"
-            android:textColor="@color/black"
-            android:textSize="15sp" />
 
     </LinearLayout>
 </ScrollView>

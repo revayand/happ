@@ -165,7 +165,7 @@ class QuestionnaireFragment : Fragment() {
                 row.iv.setImageResource(q.img)
 
                 list.addView(row)
-
+                
             }
 
         }

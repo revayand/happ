@@ -61,7 +61,7 @@ abstract class AppDatabase : RoomDatabase() {
 
             val vasvasTestq =
                 Questionnaire(143.29, 54.08,
-                   null, R.drawable.vasvas, 0,null, null, "تست وسواس", QuestionnaireState.FILLED)
+                   Constants.guideVasvas, R.drawable.vasvas, 0,null, null, "تست وسواس", QuestionnaireState.FILLED)
             appDatabase.questionnaireDao().insert(vasvasTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
                     override fun onSuccess(t: Long) {
@@ -276,7 +276,7 @@ abstract class AppDatabase : RoomDatabase() {
 
 
             val afsordegiTestq =
-                Questionnaire(19.4, 11.89,null,R.drawable.afsordegi,0, null, null, "تست افسردگی", QuestionnaireState.FILLED)
+                Questionnaire(19.4, 11.89,Constants.guideAfsordegi,R.drawable.afsordegi,0, null, null, "تست افسردگی", QuestionnaireState.FILLED)
 
             appDatabase.questionnaireDao().insert(afsordegiTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
@@ -309,7 +309,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "به آِینده امیدوارم ",
+                                        "به آینده امیدوارم ",
                                         "به آینده امیدی ندارم",
                                         "احساس می کنم آینده امید بخشی در انتظارم نیست",
                                         "کمترین روزنه امیدی ندارم"
@@ -643,7 +643,7 @@ abstract class AppDatabase : RoomDatabase() {
 
 
             val ezterabTestq =
-                Questionnaire(23.33, 7.89,null,R.drawable.ezterab,0, null, null, "تست اضطراب", QuestionnaireState.FILLED)
+                Questionnaire(23.33, 7.89,Constants.guideEzterab,R.drawable.ezterab,0, null, null, "تست اضطراب", QuestionnaireState.FILLED)
             appDatabase.questionnaireDao().insert(ezterabTestq)
                 .subscribeWith(object : DisposableSingleObserver<Long>() {
                     override fun onSuccess(t: Long) {
@@ -1500,7 +1500,7 @@ abstract class AppDatabase : RoomDatabase() {
 
             val marriageTestq = Questionnaire(
                 0.0,
-                1.0,null,R.drawable.zanashoi,1,
+                1.0,Constants.guideZanashoi,R.drawable.zanashoi,1,
                 "ﮐﺎﻫﺶ ﻫﻤﮑﺎري-ﮐﺎﻫﺶ راﺑﻄﻪ ﺟﻨﺴﯽ-اﻓﺰاﯾﺶ واﮐﻨﺶ ﻫﺎي ﻫﯿﺠﺎﻧﯽ-اﻓﺰاﯾﺶ ﺟﻠﺐ ﺣﻤﺎﯾﺖ ﻓﺮزﻧﺪان-اﻓﺰاﯾﺶ راﺑﻄﻪ ﻓﺮدي ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﺧﻮد-ﮐﺎﻫﺶ راﺑﻄﻪ ﺧﺎﻧﻮادﮔﯽ ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﻫﻤﺴﺮ و دوﺳﺘﺎن-ﺟﺪا ﮐﺮدن اﻣﻮر ﻣﺎﻟﯽ از ﯾﮑﺪﯾﮕﺮ-ﮐﺎﻫﺶ ارﺗﺒﺎط ﻣﻮﺛﺮ" +
                         "=4-12-18-25-34,5-13-19-35-40,6-14-20-27-36-42-49-51,9-22-31-38-44,8-15-21-29-37-43,1-23-32-46-50-53,2-10-17-24-33-39-48,3-7-11-16-26-28-30-41-45-47-52-54",
                 null,
@@ -1512,7 +1512,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دعوا با همسرم، رابطه من با خانواده پدر و مادري او قطع می¬شود."
+                        "    هنگام دعوا با همسرم، رابطه من با خانواده پدر و مادري او قطع می شود."
                         ,
                         Answer(
                             null,
@@ -1525,7 +1525,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم حساب¬هاي مالی جداگانه داریم."
+                        "    من و همسرم حساب هاي مالی جداگانه داریم."
                         ,
                         Answer(
                             null,
@@ -1538,7 +1538,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    حرف هاي من و همسرم بدون کنایه و بی¬پرده گفته می¬شود."
+                        "    حرف هاي من و همسرم بدون کنایه و بی پرده گفته می شود."
                         ,
                         Answer(
                             null,
@@ -1551,7 +1551,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم هرکاري از من بخواهد فراموش می¬کنم."
+                        "    همسرم هرکاري از من بخواهد فراموش می کنم."
                         ,
                         Answer(
                             null,
@@ -1564,7 +1564,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دلخوري من و همسرم، هیچ¬کدام براي رابطه جنسی پیش قدم نمی¬شویم."
+                        "    هنگام دلخوري من و همسرم، هیچ کدام براي رابطه جنسی پیش قدم نمی شویم."
                         ,
                         Answer(
                             null,
@@ -1577,7 +1577,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم کتک کاري می¬کنیم."
+                        "    من و همسرم کتک کاري می کنیم."
                         ,
                         Answer(
                             null,
@@ -1590,7 +1590,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم با اظهار¬نظرهاي خود مرا تحقیر می¬کند."
+                        "    همسرم با اظهار نظرهاي خود مرا تحقیر می کند."
                         ,
                         Answer(
                             null,
@@ -1603,7 +1603,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دلخوري، رابطه من با خانواده پدرو مادري خودم قطع می¬شود."
+                        "    هنگام دلخوري، رابطه من با خانواده پدرو مادري خودم قطع می شود."
                         ,
                         Answer(
                             null,
@@ -1629,7 +1629,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    بدون اطلاع همسرم، براي خود پس¬انداز شخصی دارم."
+                        "    بدون اطلاع همسرم، براي خود پس انداز شخصی دارم."
                         ,
                         Answer(
                             null,
@@ -1642,7 +1642,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هیچ¬وقت احساس بدي را که نسبت به او دارم به او نمی¬گویم، چون می¬ترسم عصبانی شود."
+                        "    هیچ وقت احساس بدي را که نسبت به او دارم به او نمی گویم، چون می ترسم عصبانی شود."
                         ,
                         Answer(
                             null,
@@ -1655,7 +1655,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    وقتی همسرم از من تقاضایی دارد، خودم را به کارهاي دیگر مشغول می¬کنم."
+                        "    وقتی همسرم از من تقاضایی دارد، خودم را به کارهاي دیگر مشغول می کنم."
                         ,
                         Answer(
                             null,
@@ -1668,7 +1668,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    رابطه جنسی من با همسرم ارضا¬کننده نیست."
+                        "    رابطه جنسی من با همسرم ارضا کننده نیست."
                         ,
                         Answer(
                             null,
@@ -1681,7 +1681,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    وقتی با همسرم دعوا می¬کنم، اتاق یا خانه را براي مدتی ترك می¬کنم."
+                        "    وقتی با همسرم دعوا می کنم، اتاق یا خانه را براي مدتی ترك می کنم."
                         ,
                         Answer(
                             null,
@@ -1707,7 +1707,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگامی که مشکل داریم، غالبا همسرم در جواب من سکوت اختیار می¬کند."
+                        "    هنگامی که مشکل داریم، غالبا همسرم در جواب من سکوت اختیار می کند."
                         ,
                         Answer(
                             null,
@@ -1720,7 +1720,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    درآمد همسرم را به بهانه¬هاي مختلف صرف خواسته¬هاي شخصی خود می¬کنم."
+                        "    درآمد همسرم را به بهانه هاي مختلف صرف خواسته هاي شخصی خود می کنم."
                         ,
                         Answer(
                             null,
@@ -1733,7 +1733,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را با ناقص انجام دادن کارهایی که از من می خواهد تنبیه می¬کنم."
+                        "    همسرم را با ناقص انجام دادن کارهایی که از من می خواهد تنبیه می کنم."
                         ,
                         Answer(
                             null,
@@ -1746,7 +1746,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم رابطه جنسی را به من تحمیل می¬کند."
+                        "    همسرم رابطه جنسی را به من تحمیل می کند."
                         ,
                         Answer(
                             null,
@@ -1759,7 +1759,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را به رفتارهاي غیر¬اخلاقی متهم می¬کنم."
+                        "    همسرم را به رفتارهاي غیر اخلاقی متهم می کنم."
                         ,
                         Answer(
                             null,
@@ -1772,7 +1772,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    از اعضاي خانواده پدري و مادري¬ام، براي حل اختلافات خود با همسرم، کمک می¬گیرم."
+                        "    از اعضاي خانواده پدري و مادري ام، براي حل اختلافات خود با همسرم، کمک می گیرم."
                         ,
                         Answer(
                             null,
@@ -1785,7 +1785,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    فرزند (یا فرزندانم)، اسرار همسرم را به من می¬گویند."
+                        "    فرزند (یا فرزندانم)، اسرار همسرم را به من می گویند."
                         ,
                         Answer(
                             null,
@@ -1798,7 +1798,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدر و مادري همسرم، به من بی¬احترامی می¬کنند."
+                        "    خانواده پدر و مادري همسرم، به من بی احترامی می کنند."
                         ,
                         Answer(
                             null,
@@ -1824,7 +1824,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را با بی¬نظمی و نامرتب بودن، آزار می¬دهم."
+                        "    همسرم را با بی نظمی و نامرتب بودن، آزار می دهم."
                         ,
                         Answer(
                             null,
@@ -1837,7 +1837,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم بدون واسطه و مستقیم با هم صحبت می¬کنیم."
+                        "    من و همسرم بدون واسطه و مستقیم با هم صحبت می کنیم."
                         ,
                         Answer(
                             null,
@@ -1850,7 +1850,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    وقتی با همسرم دعوا می¬کنم، فریاد می¬زنم و ناسزا می¬گویم."
+                        "    وقتی با همسرم دعوا می کنم، فریاد می زنم و ناسزا می گویم."
                         ,
                         Answer(
                             null,
@@ -1876,7 +1876,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدر و مادري من، همسرم را با دیگران مقایسه و به حال من دلسوزي می¬کنند."
+                        "    خانواده پدر و مادري من، همسرم را با دیگران مقایسه و به حال من دلسوزي می کنند."
                         ,
                         Answer(
                             null,
@@ -1941,7 +1941,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    حوصله¬ام از همسرم و خواسته¬هایش سر می¬رود."
+                        "    حوصله ام از همسرم و خواسته هایش سر می رود."
                         ,
                         Answer(
                             null,
@@ -1967,7 +1967,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام نزاع، از همسرم درخواست طلاق می¬کنم."
+                        "    هنگام نزاع، از همسرم درخواست طلاق می کنم."
                         ,
                         Answer(
                             null,
@@ -1980,7 +1980,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدري و مادري من، تمام گناه¬ها را به گردن همسرم می¬اندازند."
+                        "    خانواده پدري و مادري من، تمام گناه ها را به گردن همسرم می اندازند."
                         ,
                         Answer(
                             null,
@@ -1993,7 +1993,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دعوا بین من و همسرم، فرزند یا فرزندانم از من حمایت می¬کنند."
+                        "    هنگام دعوا بین من و همسرم، فرزند یا فرزندانم از من حمایت می کنند."
                         ,
                         Answer(
                             null,
@@ -2032,7 +2032,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    می¬ترسم خواسته¬هاي خود را با همسرم مطرح کنم."
+                        "    می ترسم خواسته هاي خود را با همسرم مطرح کنم."
                         ,
                         Answer(
                             null,
@@ -2058,7 +2058,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را در حضور خانواده پدري و مادري خودم، تحقیر می¬کنم."
+                        "    همسرم را در حضور خانواده پدري و مادري خودم، تحقیر می کنم."
                         ,
                         Answer(
                             null,
@@ -2071,7 +2071,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دعواي من و همسرم، یکی از فرزندانم زیاد مریض می¬شود و نیاز به مراقبت دارد."
+                        "    هنگام دعواي من و همسرم، یکی از فرزندانم زیاد مریض می شود و نیاز به مراقبت دارد."
                         ,
                         Answer(
                             null,
@@ -2097,7 +2097,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم و خانواده¬اش را در مقابل سایرین تحقیر می¬کنم."
+                        "    همسرم و خانواده اش را در مقابل سایرین تحقیر می کنم."
                         ,
                         Answer(
                             null,
@@ -2123,7 +2123,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    بدون اطلاع همسرم، به والدین خود پول می¬دهم و یا از آن¬ها پول می¬گیرم."
+                        "    بدون اطلاع همسرم، به والدین خود پول می دهم و یا از آن ها پول می گیرم."
                         ,
                         Answer(
                             null,
@@ -2136,7 +2136,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    دعوا با همسرم، مرا نسبت به فعالیت¬هاي خودم بی¬علاقه می¬کند."
+                        "    دعوا با همسرم، مرا نسبت به فعالیت هاي خودم بی علاقه می کند."
                         ,
                         Answer(
                             null,
@@ -2149,7 +2149,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    با آن دسته از برنامه¬هاي مهمانی که با حضور خانواده همسرم باشد، مخالفت می¬کنم."
+                        "    با آن دسته از برنامه هاي مهمانی که با حضور خانواده همسرم باشد، مخالفت می کنم."
                         ,
                         Answer(
                             null,
@@ -2162,7 +2162,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دعوا با همسرم نسبت به غذا بی¬اشتها می¬شوم."
+                        "    هنگام دعوا با همسرم نسبت به غذا بی اشتها می شوم."
                         ,
                         Answer(
                             null,
@@ -2175,7 +2175,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    باورکردن تمام حرف¬هاي همسرم، برایم دشوار است."
+                        "    باورکردن تمام حرف هاي همسرم، برایم دشوار است."
                         ,
                         Answer(
                             null,
@@ -2188,7 +2188,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    در هنگام دعوا با همسرم، رابطه من و او با دوستان مشترکمان قطع می¬شود."
+                        "    در هنگام دعوا با همسرم، رابطه من و او با دوستان مشترکمان قطع می شود."
                         ,
                         Answer(
                             null,
@@ -2201,7 +2201,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم با یکدیگر روراست و بی¬پرده هستیم."
+                        "    من و همسرم با یکدیگر روراست و بی پرده هستیم."
                         ,
                         Answer(
                             null,

@@ -210,7 +210,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
 
             var desc = "این تست انجام شده است"
-            when (intent.getStringExtra("title")) {
+            when (questionnaire.title) {
                 "تست وسواس" -> {
                     if (res in 0..10) {
                         desc = "اختلال وسواس شما بسیار ضعیف است"
@@ -248,7 +248,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                     }
                 }
                 "تست افسردگی" -> {
-                    if (res / sum.toDouble() > 0.8)
+                    if (res >=55)
                         khodkoshi = "khodkoshi,"
                     if (res in 0..10) {
                         desc = "میزان افسردگی شما طبیعی است"
@@ -281,13 +281,13 @@ class TestActivity : BaseActivity(), View.OnClickListener {
             if (khodkoshi.isNotEmpty()) {
                 userManager.getUsers(sharedPreferences.getLong("id", -1)).subscribe { user ->
                     user.detail.properties += khodkoshi
-                    userManager.upsert(user).subscribe { _ -> }
+                    userManager.addUsers(user).subscribe { _ -> }
                 }
             }
 
             answerManager.addAnswer(
                 Answerr(
-                    res, desc, null,
+                    res, desc, null,System.currentTimeMillis(),
                     sharedPreferences.getLong("id", -1),
                     questionnaireId,
                     0
@@ -298,7 +298,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
                 answerManager.addAnswer(
                     Answerr(
-                        it.third, null, it.first,
+                        it.third, null, it.first,System.currentTimeMillis(),
                         sharedPreferences.getLong("id", -1),
                         questionnaireId,
                         0

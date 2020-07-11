@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "147013382704",
+    "firebase_url": "https://menthal-health-app.firebaseio.com",
+    "project_id": "menthal-health-app",
+    "storage_bucket": "menthal-health-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147013382704:android:d15acf52abfccd217ff3f5",
+        "android_client_info": {
+          "package_name": "co.health.test.corona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147013382704-qvnuqdmpt752oo29tv8vj427nvg1j19q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBR4r2Qy3bKqMpzWJCndCCiLAomc2LVEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147013382704-qvnuqdmpt752oo29tv8vj427nvg1j19q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

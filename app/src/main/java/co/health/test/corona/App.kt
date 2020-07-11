@@ -1,12 +1,13 @@
 package co.health.test.corona
 
 import android.app.Application
+import androidx.multidex.MultiDexApplication
 import co.health.test.corona.screen.utils.FontsOverride
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 
-class App : Application() {
+class App : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         FontsOverride.setYekan(this)

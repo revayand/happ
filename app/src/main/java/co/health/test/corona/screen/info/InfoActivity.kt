@@ -31,7 +31,12 @@ class InfoActivity : AppCompatActivity() {
                 showSnack("شماره تلفن را به شکل صحیح وارد کنید.")
                 return@setOnClickListener
             }
-            var gen = findViewById<RadioButton>(rgg.checkedRadioButtonId).text
+            var gen:String? =null
+            try{
+               gen = findViewById<RadioButton>(rgg.checkedRadioButtonId).text.toString()
+
+            }
+            catch(t:Throwable){}
 
             usersManager.addUsers(
                 Users(
@@ -39,7 +44,7 @@ class InfoActivity : AppCompatActivity() {
                     Detail(
                         et_fname.text.toString(),
                         et_lname.text.toString(), et_phone.text.toString(),
-                        gen as String?, null
+                        gen, null
                     ), "", 0
                 )
             ).subscribeWith(object : DisposableSingleObserver<Long>() {

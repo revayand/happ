@@ -74,7 +74,7 @@ class ProfileActivity : BaseActivity() {
                 }
                 row.btn_share.setOnClickListener {
 
-                    val shareBody = "نتیجه ${q?.title} شما ${ans.desc}"
+                    val shareBody = "${user.detail.fname} ${user.detail.lname} نتیجه ${q?.title} شما ${ans.desc}"
                     val sharingIntent = Intent(Intent.ACTION_SEND)
                     sharingIntent.type = "text/plain"
                     sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "نتیجه تست")

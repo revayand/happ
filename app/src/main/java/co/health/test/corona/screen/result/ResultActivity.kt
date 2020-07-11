@@ -26,6 +26,7 @@ class ResultActivity : AppCompatActivity() {
     private lateinit var answers: List<Answerr>
     private lateinit var questions: List<Question>
     private lateinit var questionnaire: Questionnaire
+    private lateinit var user: Users
     val answerManager: AnswerManager by inject()
     val userManager: UsersManager by inject()
     val questionnaireManager: QuestionnaireManager by inject()
@@ -44,7 +45,7 @@ class ResultActivity : AppCompatActivity() {
         }
 
         btn_share.setOnClickListener {
-            val shareBody = "نتیجه ${toolbar_title.text} شما ${tv_res.text}"
+            val shareBody = "${user.detail.fname} ${user.detail.lname} نتیجه ${toolbar_title.text} شما ${tv_res.text}"
             val sharingIntent = Intent(Intent.ACTION_SEND)
             sharingIntent.type = "text/plain"
             sharingIntent.putExtra(Intent.EXTRA_SUBJECT, "نتیجه تست")
@@ -66,6 +67,7 @@ class ResultActivity : AppCompatActivity() {
             userManager.getAnswerByUser(sharedPreferences.getLong("id", -1))
             , BiFunction { a: QuestionnaireWithQuestions, b: UsersWithAnswers -> Pair(a, b) })
             .subscribe { t ->
+                user = t.second.users
                 questionnaire = t.first.questionnaire
                 questions = t.first.questions
                 answers = t.second.answers.filter { it.questionnaireId == questionnaire.id }
@@ -79,9 +81,10 @@ class ResultActivity : AppCompatActivity() {
 
 
         val result = answers.first { it.part == null }.point ?: 0
-        val sum = questions.map { (it.answer.selections?.size ?: 0) + questionnaire.margin }.sum()
+        val sum = questions.map { (it.answer.selections?.size ?: 0) -1 + questionnaire.margin }.sum()
+        val min = questions.map {  questionnaire.margin }.sum()
 
-        tv_point.text = (100.0 * result / (sum * 1.0)).toInt().toString().toFarsi()
+        tv_point.text = result.toInt().toString().toFarsi()
 
         val params: LinearLayout.LayoutParams = filler.layoutParams as LinearLayout.LayoutParams
         params.weight = (100.0 * result / (sum * 1.0)).toFloat()
@@ -89,6 +92,8 @@ class ResultActivity : AppCompatActivity() {
         val average = questionnaire.average
         val deviation = questionnaire.sDeviation
         val target = (result - average) / deviation
+        tv_max.text = sum.toString().toFarsi()
+        tv_min.text = min.toString().toFarsi()
 
 
         when {
@@ -123,11 +128,14 @@ class ResultActivity : AppCompatActivity() {
             "تست وسواس" -> {
 
                 sugg.text = Constants.vasvasPish
+                if (result.toDouble()/sum.toDouble()>0.75){
+                    danger.visibility=View.VISIBLE
+                }
                 if (res in 0..10) {
                     tv_res.text = "اختلال وسواس شما بسیار ضعیف است"
                     desc = tv_res.text.toString()
                 }
-                if (res in 10..15) {
+                if (res in 11..15) {
                     tv_res.text = "شما علايم خفیف وسواس را دارید"
                     desc = tv_res.text.toString()
                 }
@@ -143,6 +151,9 @@ class ResultActivity : AppCompatActivity() {
             "تست اضطراب" -> {
 
                 sugg.text = Constants.ezterabPish
+                if (result.toDouble()/sum.toDouble()>0.75){
+                    danger.visibility=View.VISIBLE
+                }
                 if (res in 0..7) {
                     tv_res.text = "شما هیچ اضطرابی ندارید"
                     desc = tv_res.text.toString()
@@ -162,7 +173,9 @@ class ResultActivity : AppCompatActivity() {
             }
             "تست افسردگی" -> {
                 sugg.text = Constants.afsordegiPish
-
+                if (result.toDouble()/sum.toDouble()>0.75){
+                    danger.visibility=View.VISIBLE
+                }
                 if (res in 0..10) {
                     tv_res.text = "میزان افسردگی شما طبیعی است"
                     desc = tv_res.text.toString()
@@ -184,13 +197,13 @@ class ResultActivity : AppCompatActivity() {
                     desc = tv_res.text.toString()
                 }
 
-                if (res >= 41) {
+                if (res > 41) {
                     tv_res.text = "شما بیش از حد افسردگی دارید"
                     desc = tv_res.text.toString()
                 }
             }
             "تست حل مسئله اجتماعی" -> {
-                sugg.visibility = View.GONE
+
                 chart.visibility = View.GONE
                 line_chart.visibility = View.GONE
                 if (res in 16..32) {
@@ -212,12 +225,12 @@ class ResultActivity : AppCompatActivity() {
 
                 val max = answers.filter { it.part != null }.maxBy { it.point ?: 0 }
                 if (max?.part == "سبک منطقی حل مسئله") {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.sabkManteghiHalMasale
+                    sugg.text =  Constants.sabkManteghiHalMasale
                 } else if (max?.part == "سبک اجتنابی حل مسئله") {
 
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.sabkEjtenabiHalMasale
+                    sugg.text = Constants.sabkEjtenabiHalMasale
                 } else if (max?.part == "سبک تکانشی حل مسئله") {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.sabkTakaneshiHalMasale
+                    sugg.text = Constants.sabkTakaneshiHalMasale
                 }
 
             }
@@ -243,38 +256,41 @@ class ResultActivity : AppCompatActivity() {
                     ?: 0) + (didgahGiri?.point ?: 0)
 
                 if (nakaramad in 24..40) {
-                    tv_res.text = Constants.nakaramad
+                    sugg.visibility = View.VISIBLE
+                    sugg.text = Constants.nakaramad
 
                 } else if (karamad in 30..50) {
-                    tv_res.text = Constants.karamad
+
+                    sugg.visibility = View.VISIBLE
+                    sugg.text = Constants.karamad
                 }
                 val max = answers.filter { it.part != null }.maxBy { it.point ?: 0 }
                 if (max == malamatDigran) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.malamatDigran
+                    tv_res.text = Constants.malamatDigran
                 } else if (max == malamatKhish) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.malamatKhish
+                    tv_res.text =Constants.malamatKhish
 
                 } else if (max == fajeesazi) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.fajeesazi
+                    tv_res.text = Constants.fajeesazi
 
                 } else if (max == noshkhargari) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.noshkhargari
+                    tv_res.text = Constants.noshkhargari
 
                 } else if (max == paziresh) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.paziresh
+                    tv_res.text = Constants.paziresh
 
                 } else if (max == tamarkozMojadadBarBarnameRizi) {
                     tv_res.text =
-                        tv_res.text.toString() + "\n" + Constants.tamarkozMojadadBarBarnameRizi
+                        Constants.tamarkozMojadadBarBarnameRizi
 
                 } else if (max == tamarkozMojadadMosbat) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.tamarkozMojadadMosbat
+                    tv_res.text = Constants.tamarkozMojadadMosbat
 
                 } else if (max == arzyabiMojadadMosbat) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.arzyabiMojadadMosbat
+                    tv_res.text = Constants.arzyabiMojadadMosbat
 
                 } else if (max == didgahGiri) {
-                    tv_res.text = tv_res.text.toString() + "\n" + Constants.didgahGiri
+                    tv_res.text = Constants.didgahGiri
 
                 }
 
