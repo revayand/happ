@@ -248,7 +248,7 @@
             android:ellipsize="end"
 
             android:gravity="center"
-            android:text="کمک کردن"
+            android:text="کمک کننده"
             android:textColor="@color/select_green_text" />
 
         <CheckBox
@@ -302,7 +302,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ترس" />
+            android:text="ترسیده" />
 
         <CheckBox
             android:layout_margin="2dp"
@@ -315,7 +315,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="خجالت" />
+            android:text="خجالت زده" />
 
         <CheckBox
             android:layout_margin="2dp"
@@ -341,7 +341,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="گناه" />
+            android:text="دارای حس گناه" />
 
         <CheckBox
             android:layout_margin="2dp"
@@ -354,7 +354,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="تنهای" />
+            android:text="تنها" />
 
         <CheckBox
             android:layout_margin="2dp"
@@ -367,7 +367,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="بی حسی" />
+            android:text="بی حس" />
 
 
         <CheckBox
@@ -381,7 +381,7 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="خستگی" />
+            android:text="خسته" />
 
     </com.nex3z.flowlayout.FlowLayout>
 

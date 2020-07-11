@@ -53,7 +53,48 @@
             noghteh:text="@string/desc"
             noghteh:textColor="@color/black"
             noghteh:textSize="15sp" />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست افسردگی"
+            android:id="@+id/afsordegi"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست اضطراب"
+            android:id="@+id/ezterab"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست وسواس"
+            android:id="@+id/vasvas"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست حل مسئله احتماعی"
+            android:id="@+id/ejtemai"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست نظم جوی هیجان"
+            android:id="@+id/haiajan"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست تعارضات زناشوی"
+            android:id="@+id/tarozat"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="wrap_content"
+            android:text="منابع تست مکمل افسردگی"
+            android:id="@+id/khodkoshi"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </ScrollView>

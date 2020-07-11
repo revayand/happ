@@ -229,7 +229,7 @@ abstract class AppDatabase : RoomDatabase() {
                                         "اکثر اوقات سعی می کنم مقاومت کنم ",
                                         "برخی اوقات سعی میکنم مقاومت کنم  ",
                                         "تلاش برای کنترل آنها ندارم ",
-                                        "کاملا تسلیم می شوم"
+                                        "کاملاً تسلیم می شوم"
                                     )
                                 ), t
                             )
@@ -328,7 +328,7 @@ abstract class AppDatabase : RoomDatabase() {
                                         "ناکام نیستم ",
                                         "ناکام تر از دیگرانم ",
                                         "احساس می کنم آینده امید بخشی در انتظارم نیست",
-                                        "آدم کاملا شکست خورده ای هستم"
+                                        "آدم کاملاً شکست خورده ای هستم"
                                     )
                                 ), t
                             )
@@ -469,7 +469,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "مثل همیشع مردم را دوست دارم ",
+                                        "مثل همیشه مردم را دوست دارم ",
                                         "به نسبت گذشته کمتر از مردم خوشم می آید",
                                         "تا حدودی زیادی علاقه ام را به مردم از دست داده ام",
                                         "از مردم قطع امید کرده ام به آنها علاقه ای ندارم"
@@ -581,7 +581,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اخیرا وزن کم نکرده ام ",
+                                        "اخیراًً وزن کم نکرده ام ",
                                         "بیش از دو کیلو و نیم وزن کم نکرده ام ",
                                         "بیش از پنج کیلو از وزن بدنم کم شده است ",
                                         "بیش از هفت کیلو وزن کم کرده ام "
@@ -652,13 +652,13 @@ abstract class AppDatabase : RoomDatabase() {
 
                         ezterabql.add(
                             Question(
-                                "کرخی و گزگز شدن (مور مورشدن)",
+                                "کرختی و گزگز شدن (مور مورشدن)",
                                 Answer(
                                     null,
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -675,7 +675,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -692,7 +692,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -709,7 +709,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -726,7 +726,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -743,7 +743,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -760,7 +760,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -771,13 +771,13 @@ abstract class AppDatabase : RoomDatabase() {
 
                         ezterabql.add(
                             Question(
-                                "حالت متغییر ( بی ثبات)",
+                                "حالت متغیر ( بی ثبات)",
                                 Answer(
                                     null,
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -794,7 +794,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -811,7 +811,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -828,7 +828,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -845,7 +845,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -862,7 +862,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -879,7 +879,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -896,7 +896,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -913,7 +913,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -930,7 +930,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -947,7 +947,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -964,7 +964,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -981,7 +981,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -999,7 +999,7 @@ abstract class AppDatabase : RoomDatabase() {
                                     AnswerType.RADIO,
                                     listOf(
 
-                                        "اصلا",
+                                        "اصلاً",
                                         "خفیف",
                                         "متوسط",
                                         "شدید"
@@ -1045,7 +1045,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1057,7 +1057,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1069,7 +1069,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1081,7 +1081,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1093,7 +1093,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1105,7 +1105,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1117,19 +1117,19 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
 
                 nazmql.add(
                     Question(
-                        "  من به جای این اتفاق به چیزهای خوب میاندیشم."
+                        "  من به جای این اتفاق به چیزهای خوب می اندیشم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1141,7 +1141,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1153,7 +1153,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1165,7 +1165,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1177,19 +1177,19 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
 
                 nazmql.add(
                     Question(
-                        "  فکر میکنم چیزی را که من تجربه کردهام در مقایسه با چیزهای دیگر خیلی بد نبوده است."
+                        "  فکر میکنم چیزی را که من تجربه کرده ام در مقایسه با چیزهای دیگر خیلی بد نبوده است."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1201,19 +1201,19 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
 
                 nazmql.add(
                     Question(
-                        "  من به فکر کردن در مورد وحشتناک بودن تجربهام ادامه میدهم."
+                        "  من به فکر کردن در مورد وحشتناک بودن تجربه ام ادامه میدهم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1225,7 +1225,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1237,7 +1237,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         ), t
                     )
                 )
@@ -1247,7 +1247,7 @@ abstract class AppDatabase : RoomDatabase() {
                         "  من احساس می کنم که علت اصلی این مشکل دیگران هستند."
                         ,
                         Answer(
-                            null, AnswerType.RADIO, listOf("هرگز", "گاهی", "مرتبا", "اغلب", "همیشه")
+                            null, AnswerType.RADIO, listOf("هرگز", "گاهی", "ًمرتباً", "اغلب", "همیشه")
                         )
                         , t
                     )
@@ -1286,7 +1286,7 @@ abstract class AppDatabase : RoomDatabase() {
 
                 socialql.add(
                     Question(
-                        "اگر تلاش اولم برای حل مسئله با شکست مواجه شود، مایوس می شوم"
+                        "اگر تلاش اولم برای حل مسئله با شکست مواجه شود، مأیوس می شوم"
                         ,
                         Answer(
                             null,
@@ -1501,7 +1501,7 @@ abstract class AppDatabase : RoomDatabase() {
             val marriageTestq = Questionnaire(
                 0.0,
                 1.0,Constants.guideZanashoi,R.drawable.zanashoi,1,
-                "ﮐﺎﻫﺶ ﻫﻤﮑﺎري-ﮐﺎﻫﺶ راﺑﻄﻪ ﺟﻨﺴﯽ-اﻓﺰاﯾﺶ واﮐﻨﺶ ﻫﺎي ﻫﯿﺠﺎﻧﯽ-اﻓﺰاﯾﺶ ﺟﻠﺐ ﺣﻤﺎﯾﺖ ﻓﺮزﻧﺪان-اﻓﺰاﯾﺶ راﺑﻄﻪ ﻓﺮدي ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﺧﻮد-ﮐﺎﻫﺶ راﺑﻄﻪ ﺧﺎﻧﻮادﮔﯽ ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﻫﻤﺴﺮ و دوﺳﺘﺎن-ﺟﺪا ﮐﺮدن اﻣﻮر ﻣﺎﻟﯽ از ﯾﮑﺪﯾﮕﺮ-ﮐﺎﻫﺶ ارﺗﺒﺎط ﻣﻮﺛﺮ" +
+                "ﮐﺎﻫﺶ ﻫﻤﮑﺎری-ﮐﺎﻫﺶ راﺑﻄﻪ ﺟﻨﺴﯽ-اﻓﺰاﯾﺶ واﮐﻨﺶ ﻫﺎی ﻫﯿﺠﺎﻧﯽ-اﻓﺰاﯾﺶ ﺟﻠﺐ ﺣﻤﺎﯾﺖ ﻓﺮزﻧﺪان-اﻓﺰاﯾﺶ راﺑﻄﻪ ﻓﺮدی ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﺧﻮد-ﮐﺎﻫﺶ راﺑﻄﻪ ﺧﺎﻧﻮادﮔﯽ ﺑﺎ ﺧﻮﯾﺸﺎوﻧﺪان ﻫﻤﺴﺮ و دوﺳﺘﺎن-ﺟﺪا ﮐﺮدن اﻣﻮر ﻣﺎﻟﯽ از ﯾﮑﺪﯾﮕﺮ-ﮐﺎﻫﺶ ارﺗﺒﺎط ﻣﻮﺛﺮ" +
                         "=4-12-18-25-34,5-13-19-35-40,6-14-20-27-36-42-49-51,9-22-31-38-44,8-15-21-29-37-43,1-23-32-46-50-53,2-10-17-24-33-39-48,3-7-11-16-26-28-30-41-45-47-52-54",
                 null,
                 "تست تعارضات زناشویی",
@@ -1517,7 +1517,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1525,12 +1525,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم حساب هاي مالی جداگانه داریم."
+                        "    من و همسرم حساب های مالی جداگانه داریم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1538,12 +1538,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    حرف هاي من و همسرم بدون کنایه و بی پرده گفته می شود."
+                        "    حرف های من و همسرم بدون کنایه و بی پرده گفته می شود."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1551,12 +1551,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم هرکاري از من بخواهد فراموش می کنم."
+                        "    همسرم هرکاری از من بخواهد فراموش می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1564,12 +1564,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دلخوري من و همسرم، هیچ کدام براي رابطه جنسی پیش قدم نمی شویم."
+                        "    هنگام دلخوری من و همسرم، هیچ کدام برای رابطه جنسی پیش قدم نمی شویم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1577,12 +1577,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    من و همسرم کتک کاري می کنیم."
+                        "    من و همسرم کتک کاری می کنیم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1590,12 +1590,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم با اظهار نظرهاي خود مرا تحقیر می کند."
+                        "    همسرم با اظهار نظرهای خود مرا تحقیر می کند."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1603,12 +1603,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دلخوري، رابطه من با خانواده پدرو مادري خودم قطع می شود."
+                        "    هنگام دلخوری، رابطه من با خانواده پدرو مادری خودم قطع می شود."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1616,12 +1616,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    براي جلب فرزند (یا فرزندانم) حاضرم انتظارات نامعقول او(یا آنان) را برآورده کنم."
+                        "    برای جلب فرزند (یا فرزندانم) حاضرم انتظارات نامعقول او(یا آنان) را برآورده کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1629,12 +1629,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    بدون اطلاع همسرم، براي خود پس انداز شخصی دارم."
+                        "    بدون اطلاع همسرم، برای خود پس انداز شخصی دارم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1642,12 +1642,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هیچ وقت احساس بدي را که نسبت به او دارم به او نمی گویم، چون می ترسم عصبانی شود."
+                        "    هیچ وقت احساس بدی را که نسبت به او دارم به او نمی گویم، چون می ترسم عصبانی شود."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1655,12 +1655,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    وقتی همسرم از من تقاضایی دارد، خودم را به کارهاي دیگر مشغول می کنم."
+                        "    وقتی همسرم از من تقاضایی دارد، خودم را به کارهای دیگر مشغول می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1673,7 +1673,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1681,12 +1681,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    وقتی با همسرم دعوا می کنم، اتاق یا خانه را براي مدتی ترك می کنم."
+                        "    وقتی با همسرم دعوا می کنم، اتاق یا خانه را برای مدتی ترك می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1694,12 +1694,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    به تنهایی با خانواده پدر و مادري خود و خواهر و برادرانم رابطه دارم."
+                        "    به تنهایی با خانواده پدر و مادری خود و خواهر و برادرانم رابطه دارم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1712,7 +1712,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1720,12 +1720,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    درآمد همسرم را به بهانه هاي مختلف صرف خواسته هاي شخصی خود می کنم."
+                        "    درآمد همسرم را به بهانه های مختلف صرف خواسته های شخصی خود می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1738,7 +1738,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1751,7 +1751,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1759,12 +1759,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را به رفتارهاي غیر اخلاقی متهم می کنم."
+                        "    همسرم را به رفتارهای غیر اخلاقی متهم می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1772,12 +1772,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    از اعضاي خانواده پدري و مادري ام، براي حل اختلافات خود با همسرم، کمک می گیرم."
+                        "    از اعضای خانواده پدری و مادری ام، برای حل اختلافات خود با همسرم، کمک می گیرم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1790,7 +1790,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1798,12 +1798,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدر و مادري همسرم، به من بی احترامی می کنند."
+                        "    خانواده پدر و مادری همسرم، به من بی احترامی می کنند."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1816,7 +1816,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1829,7 +1829,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1842,7 +1842,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1855,7 +1855,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1868,7 +1868,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1876,12 +1876,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدر و مادري من، همسرم را با دیگران مقایسه و به حال من دلسوزي می کنند."
+                        "    خانواده پدر و مادری من، همسرم را با دیگران مقایسه و به حال من دلسوزی می کنند."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1894,7 +1894,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1907,7 +1907,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1920,7 +1920,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1933,7 +1933,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -1946,7 +1946,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1959,7 +1959,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1972,7 +1972,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1980,12 +1980,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    خانواده پدري و مادري من، تمام گناه ها را به گردن همسرم می اندازند."
+                        "    خانواده پدری و مادری من، تمام گناه ها را به گردن همسرم می اندازند."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -1998,7 +1998,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2006,12 +2006,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    حاضر نیستم براي بدهی هاي همسرم از دیگران پول قرض کنم."
+                        "    حاضر نیستم برای بدهی های همسرم از دیگران پول قرض کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2024,7 +2024,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2032,12 +2032,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    می ترسم خواسته هاي خود را با همسرم مطرح کنم."
+                        "    می ترسم خواسته های خود را با همسرم مطرح کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2050,7 +2050,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2058,12 +2058,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    همسرم را در حضور خانواده پدري و مادري خودم، تحقیر می کنم."
+                        "    همسرم را در حضور خانواده پدری و مادری خودم، تحقیر می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2071,12 +2071,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    هنگام دعواي من و همسرم، یکی از فرزندانم زیاد مریض می شود و نیاز به مراقبت دارد."
+                        "    هنگام دعوای من و همسرم، یکی از فرزندانم زیاد مریض می شود و نیاز به مراقبت دارد."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2089,7 +2089,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2102,7 +2102,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2110,12 +2110,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    در ابراز هرگونه احساس واقعی خود براي همسرم، راحتم."
+                        "    در ابراز هرگونه احساس واقعی خود برای همسرم، راحتم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )
@@ -2128,7 +2128,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2136,12 +2136,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    دعوا با همسرم، مرا نسبت به فعالیت هاي خودم بی علاقه می کند."
+                        "    دعوا با همسرم، مرا نسبت به فعالیت های خودم بی علاقه می کند."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2149,12 +2149,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    با آن دسته از برنامه هاي مهمانی که با حضور خانواده همسرم باشد، مخالفت می کنم."
+                        "    با آن دسته از برنامه های مهمانی که با حضور خانواده همسرم باشد، مخالفت می کنم."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2167,7 +2167,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2175,12 +2175,12 @@ abstract class AppDatabase : RoomDatabase() {
 
                 marriageql.add(
                     Question(
-                        "    باورکردن تمام حرف هاي همسرم، برایم دشوار است."
+                        "    باورکردن تمام حرف های همسرم، برایم دشوار است."
                         ,
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2193,7 +2193,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه")
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه")
                         ),
                         t
                     )
@@ -2206,7 +2206,7 @@ abstract class AppDatabase : RoomDatabase() {
                         Answer(
                             null,
                             AnswerType.RADIO,
-                            listOf("هرگز", "به ندرت", "گاهی", "اکثرا", "همیشه").reversed()
+                            listOf("هرگز", "به ندرت", "گاهی", "اکثراً", "همیشه").reversed()
                         ),
                         t
                     )

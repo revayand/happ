@@ -46,43 +46,6 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="آیا از نزدیکان شما  به علت ابتلاء به بیماری کرونا فوت شده اند؟"
-                    android:textColor="@color/black" />
-
-                <RadioGroup
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layoutDirection="rtl"
-                    android:orientation="vertical">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layoutDirection="rtl"
-                        android:text="بله" />
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layoutDirection="rtl"
-                        android:text="خیر" />
-                </RadioGroup>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -100,7 +63,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="آیا سابقه ابتلاء به بیماری های اعصاب را داشته اید ؟"
+                    android:text="آیا سابقه ابتلاء به بیماری های روانپزشکی را داشته اید ؟"
                     android:textColor="@color/black" />
 
                 <RadioGroup
@@ -148,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="آیا مراجعه به کلینیک درمانگاه روانشناسی را داشته اید داشتید؟"
+                    android:text="آیا مراجعه به روانشناس و روانپزشک را داشته اید داشتید؟"
                     android:textColor="@color/black" />
 
                 <RadioGroup
@@ -195,7 +158,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="آیا سابقه بستری در بیمارستان روانپزشکی را داشتید ؟"
+                    android:text=" آیا سابقه بستری به علت مشکلات روانپزشکی را داشته اید؟"
                     android:textColor="@color/black" />
 
                 <RadioGroup
@@ -243,12 +206,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
-                    android:text="آیا سابقه مصرف داروهای اعصاب روان را داشته ؟( با دستور پزشک یا مصرف خود سرانه )"
+                    android:text="آیا سابقه مصرف داروهای اعصاب روان را داشته اید ؟( با دستور پزشک یا مصرف خود سرانه )"
                     android:textColor="@color/black" />
 
                 <RadioGroup
                     android:layout_width="wrap_content"
-
+                    android:id="@+id/rg_daro"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layoutDirection="rtl"
@@ -256,14 +219,23 @@
 
                     <RadioButton
                         android:layout_width="wrap_content"
-
+                        android:id="@+id/rb_yes_1"
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="بله" />
+                        android:text="بله با دستور پزشک" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
+                        android:id="@+id/rb_yes_2"
+
+                        android:layout_height="wrap_content"
+                        android:layoutDirection="rtl"
+                        android:text="بله بدون دستور پزشک" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:id="@+id/rb_no"
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
@@ -274,6 +246,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="right"
+                    android:id="@+id/ll_daro"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <EditText
@@ -454,7 +428,7 @@
                         android:id="@+id/rb_5"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا موافق" />
+                        android:text="کاملاً موافق" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -482,7 +456,7 @@
                         android:id="@+id/rb_1"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا مخالف" />
+                        android:text="کاملاً مخالف" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -521,7 +495,7 @@
                         android:id="@+id/rb_25"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا موافق" />
+                        android:text="کاملاً موافق" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -549,7 +523,7 @@
                         android:id="@+id/rb_21"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا مخالف" />
+                        android:text="کاملاً مخالف" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -588,7 +562,7 @@
                         android:id="@+id/rb_35"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا موافق" />
+                        android:text="کاملاً موافق" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -616,7 +590,7 @@
                         android:id="@+id/rb_31"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا مخالف" />
+                        android:text="کاملاً مخالف" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -655,7 +629,7 @@
                         android:id="@+id/rb_45"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا موافق" />
+                        android:text="کاملاً موافق" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -683,7 +657,7 @@
                         android:id="@+id/rb_41"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا مخالف" />
+                        android:text="کاملاً مخالف" />
                 </RadioGroup>
 
             </LinearLayout>
@@ -723,7 +697,7 @@
                         android:id="@+id/rb_55"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا موافق" />
+                        android:text="کاملاً موافق" />
 
                     <RadioButton
                         android:layout_width="wrap_content"
@@ -755,7 +729,7 @@
 
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
-                        android:text="کاملا مخالف" />
+                        android:text="کاملاً مخالف" />
                 </RadioGroup>
 
             </LinearLayout>

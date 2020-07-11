@@ -136,7 +136,7 @@ class ResultActivity : AppCompatActivity() {
                     desc = tv_res.text.toString()
                 }
                 if (res in 11..15) {
-                    tv_res.text = "شما علايم خفیف وسواس را دارید"
+                    tv_res.text = "شما علایم خفیف وسواس را دارید"
                     desc = tv_res.text.toString()
                 }
                 if (res in 16..25) {

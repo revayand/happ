@@ -154,7 +154,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
                     )
                     checkBox.setPadding(20)
 
-                    checkBox.id = index * 100 + questionnaire.margin + i
+                    checkBox.id = index * 100 + questionnaire.margin + i +1
                     checkBox.text = question.answer.selections[i]
 
                     radioGroup.addView(checkBox)
@@ -217,7 +217,7 @@ class TestActivity : BaseActivity(), View.OnClickListener {
 
                     }
                     if (res in 10..15) {
-                        desc = "شما علايم خفیف وسواس را دارید"
+                        desc = "شما علایم خفیف وسواس را دارید"
 
                     }
                     if (res in 16..25) {

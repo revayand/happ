@@ -3,6 +3,7 @@ package co.health.test.corona.screen.history
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 import co.health.test.corona.R
@@ -29,6 +30,7 @@ class HistoryActivity : AppCompatActivity() {
                 showSnack("لطفا همه تست‌ها را تکمیل کنید.")
                 return@setOnClickListener
             }
+
 
             val ezterab = getValueFromRB(rg_anxity)
             val afsordegi = getValueFromRB(rg_depression)
@@ -67,6 +69,14 @@ class HistoryActivity : AppCompatActivity() {
 //            showSnack(rg_anxity.checkedRadioButtonId.toString())}
         }
 
+        rg_daro.setOnCheckedChangeListener { group, checkedId ->
+
+            if (checkedId != R.id.rb_no){
+                ll_daro.visibility= View.VISIBLE
+            }
+            else      ll_daro.visibility= View.GONE
+
+        }
     }
 
     fun getValueFromRB(rg: RadioGroup): Boolean {

@@ -1,18 +1,20 @@
 package co.health.test.corona.screen.main.other
 
-import android.graphics.Color
+import android.content.Intent
 import android.graphics.Paint
 import android.graphics.Typeface
+import android.net.Uri
 import android.os.Bundle
 import android.util.TypedValue
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.setPadding
-
+import androidx.fragment.app.Fragment
+import co.health.test.corona.BuildConfig
 import co.health.test.corona.R
 import kotlinx.android.synthetic.main.fragment_other.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,6 +47,71 @@ class OtherFragment : Fragment() {
         descc.setPadding(5)
         descc.alignment = Paint.Align.RIGHT
         descc.typeFace = Typeface.createFromAsset(activity?.assets, "fonts/IRANSansMobile.ttf")
+        afsordegi.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.afsordegi)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        afsordegi.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.afsordegi)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        ejtemai.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.ejtemai)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        ezterab.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.ezterab)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        haiajan.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.haiajan)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        khodkoshi.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.khodkoshi)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        tarozat.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.tarozat)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        vasvas.setOnClickListener {
+            val path: Uri =
+                Uri.parse("android.resource://" + BuildConfig.APPLICATION_ID + "/" + R.raw.vasvas)
+
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setDataAndType(path, "application/pdf")
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+
 
     }
 
