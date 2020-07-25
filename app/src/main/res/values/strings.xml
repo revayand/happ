@@ -10,7 +10,37 @@
         <item>65-75</item>
     </string-array>
     <string-array name="cities">
+        <item>آذربایجان شرقی </item>
+        <item>آذربایجان غربی </item>
+        <item>اردبیل </item>
+        <item>اصفهان </item>
+        <item>البرز </item>
+        <item>ایلام</item>
+        <item>بوشهر</item>
         <item>تهران</item>
+        <item>چهارمحال و بختیاری </item>
+        <item>خراسان جنوبی </item>
+        <item>خراسان رضوی</item>
+        <item>خراسان شمالی </item>
+        <item>خوزستان </item>
+        <item>زنجان </item>
+        <item>سمنان </item>
+        <item>سیستان و بلوچستان </item>
+        <item>فارس </item>
+        <item>قزوین </item>
+        <item>قم </item>
+        <item>کردستان </item>
+        <item>کرمان </item>
+        <item>کرمانشاه </item>
+        <item>کهگیلویه و بویراحمد </item>
+        <item>گلستان </item>
+        <item>گیلان </item>
+        <item>لرستان  </item>
+        <item>مازندران </item>
+        <item>مرکزی  </item>
+        <item>هرمزگان </item>
+        <item>همدان</item>
+        <item>یزد  </item>
     </string-array>
     <string-array name="educations">
         <item>دیپلم - زیر دیپلم</item>

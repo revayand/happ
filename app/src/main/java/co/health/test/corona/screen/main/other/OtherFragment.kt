@@ -16,6 +16,7 @@ import androidx.annotation.RawRes
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import co.health.test.corona.R
+import co.health.test.corona.screen.resource.ResourceActivity
 import co.health.test.corona.screen.utils.showSnack
 import co.health.test.corona.utils.PermissionHandler
 import kotlinx.android.synthetic.main.fragment_other.*
@@ -55,144 +56,23 @@ class OtherFragment : Fragment() {
         descc.alignment = Paint.Align.RIGHT
         descc.typeFace = Typeface.createFromAsset(activity?.assets, "fonts/IRANSansMobile.ttf")
         afsordegi.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-                    openPDF(R.raw.afsordegi, "afsordegi.pdf")
 
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
+            startActivity(Intent(activity, ResourceActivity::class.java))
         }
 
-        ejtemai.setOnClickListener {
-
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-                    openPDF(R.raw.ejtemai, "ejtemai.pdf")
-
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
-        }
         ezterab.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
 
-                    openPDF(R.raw.ezterab, "ezterab.pdf")
-
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
+            startActivity(Intent(activity, ResourceActivity::class.java).apply {
+                putExtra(
+                    "amozesh",
+                    true
+                )
             })
-
-        }
-        haiajan.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-
-                    openPDF(R.raw.haiajan, "haiajan.pdf")
-
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
-
-        }
-        khodkoshi.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-
-
-                    openPDF(R.raw.khodkoshi, "khodkoshi.pdf")
-
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
-        }
-        tarozat.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-
-
-                    openPDF(R.raw.tarozat, "tarozat.pdf")
-
-
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
-
-
-        }
-        vasvas.setOnClickListener {
-            PermissionHandler().checkPermission(activity!!, arrayOf(
-                android.Manifest.permission.READ_EXTERNAL_STORAGE,
-                android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-            ), object : PermissionHandler.OnPermissionResponse {
-                override fun onPermissionGranted() {
-
-                    openPDF(R.raw.vasvas, "vasvas.pdf")
-                }
-
-                override fun onPermissionDenied() {
-                    showSnack("برای مشاهده این فایل نیاز به اجازه دسترسی به فایل ها است.")
-                }
-            })
-
-
-
-
         }
 
 
     }
 
-
-    var dirpicture: String =
-        Environment.getExternalStorageDirectory().toString() + "/Bulenttes/"
 
     @Throws(IOException::class)
     private fun copyFile(`in`: InputStream, out: OutputStream) {
@@ -208,6 +88,10 @@ class OtherFragment : Fragment() {
 
     fun openPDF(@RawRes raw: Int, fileName: String) {
         try {
+
+            var dirpicture: String =
+                activity?.externalCacheDir?.path.toString() + "/Bulenttes/"
+
             val dir = File(dirpicture)
 
             if (dir.mkdirs() || dir.isDirectory) {

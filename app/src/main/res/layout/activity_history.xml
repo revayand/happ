@@ -51,6 +51,360 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/gray_dark" />
 
+<!--            corona-->
+            <TextView
+                android:id="@+id/tv_corona"
+                android:textColor="@color/black"
+                android:text="سوالات مربوط به کرونا کلیک کنید."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:paddingRight="30dp"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/ll_corona"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا شما به کرونا مبتلاء شده اید و یا در حال حاضر مبتلاء هستید؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا افرادی در خانواده درجه 1 شما به کرونا مبتلاء بوده و یا هستند؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا افرادی در خانواده درجه 2 شما به کرونا مبتلاء بوده و یا هستند؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا افرادی از دوستان صمیمی شما به کرونا مبتلاء بوده و یا هستند؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا فرد و یا افرادی از خانواده درجه 1 شما در اثر ابتلاء به کرونا فوت شده اند ؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا فرد و یا افرادی از خانواده درجه 2 شما در اثر ابتلاء به کرونا فوت شده اند ؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="آیا فرد و یا افرادی از دوستان صمیمی شما در اثر ابتلاء به کرونا فوت شده اند؟"
+                        android:textColor="@color/black" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layoutDirection="rtl"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="بله" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl"
+                            android:text="خیر" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/gray_dark" />
+
+            </LinearLayout>
+
+<!--            history-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -290,7 +644,7 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
-
+                    android:id="@+id/rg_darge1"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layoutDirection="rtl"
@@ -329,11 +683,35 @@
 
                     <RadioButton
                         android:layout_width="wrap_content"
-
+                        android:id="@+id/rb_darge1_no"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
                         android:text="خیر" />
+
                 </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="right"
+                    android:id="@+id/ll_darge1"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="200dp"
+
+                        android:layout_height="50dp"
+                        android:gravity="center" />
+
+                    <TextView
+                        style="@style/AppTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="درصورت تشخیص پزشک نام  اختلال را بنویسید؟" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -361,7 +739,7 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
-
+                    android:id="@+id/rg_darge2"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:layoutDirection="rtl"
@@ -369,8 +747,7 @@
 
                     <RadioButton
                         android:layout_width="wrap_content"
-
-
+                        android:id="@+id/rb_darge2_no"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl"
                         android:text="خیر" />
@@ -390,6 +767,29 @@
                         android:layoutDirection="rtl"
                         android:text="خانواده پدری" />
                 </RadioGroup>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="right"
+                    android:id="@+id/ll_darge2"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:layout_width="200dp"
+
+                        android:layout_height="50dp"
+                        android:gravity="center" />
+
+                    <TextView
+                        style="@style/AppTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="درصورت تشخیص پزشک نام  اختلال را بنویسید؟" />
+
+                </LinearLayout>
 
             </LinearLayout>
 <!--neo-->

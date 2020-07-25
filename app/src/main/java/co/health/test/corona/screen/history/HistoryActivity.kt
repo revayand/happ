@@ -54,7 +54,7 @@ class HistoryActivity : AppCompatActivity() {
                                         Intent(this@HistoryActivity, MainActivity::class.java)
 
                                     gotoScreenVar.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-                                    gotoScreenVar.putExtra("gotoQuestionnaire",true)
+                                    gotoScreenVar.putExtra("gotoQuestionnaire", true)
 
                                     startActivity(gotoScreenVar)
 
@@ -71,10 +71,28 @@ class HistoryActivity : AppCompatActivity() {
 
         rg_daro.setOnCheckedChangeListener { group, checkedId ->
 
-            if (checkedId != R.id.rb_no){
-                ll_daro.visibility= View.VISIBLE
-            }
-            else      ll_daro.visibility= View.GONE
+            if (checkedId != R.id.rb_no) {
+                ll_daro.visibility = View.VISIBLE
+            } else ll_daro.visibility = View.GONE
+
+        }
+
+        rg_darge1.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId != R.id.rb_darge1_no) {
+                ll_daro.visibility = View.VISIBLE
+            } else ll_daro.visibility = View.GONE
+
+        }
+        rg_darge2.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId != R.id.rb_darge2_no) {
+                ll_daro.visibility = View.VISIBLE
+            } else ll_daro.visibility = View.GONE
+
+        }
+        tv_corona.setOnClickListener {
+            if (ll_corona.visibility == View.GONE) {
+                ll_corona.visibility = View.VISIBLE
+            } else ll_corona.visibility = View.GONE
 
         }
     }

@@ -153,28 +153,28 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:gravity="center_vertical|right"
-                android:orientation="horizontal">
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:gravity="center_vertical|right"-->
+<!--                android:orientation="horizontal">-->
 
 
-                <Spinner
-                    android:layout_width="200dp"
-                    android:spinnerMode="dialog"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:entries="@array/cities" />
+<!--                <Spinner-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:spinnerMode="dialog"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    android:entries="@array/cities" />-->
 
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:gravity="left"
-                    android:text="شهر:" />
+<!--                <TextView-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="5dp"-->
+<!--                    android:gravity="left"-->
+<!--                    android:text="شهر:" />-->
 
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
 
             <LinearLayout
